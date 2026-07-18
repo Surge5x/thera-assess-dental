@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thera Compare — Treatment Abroad Price Comparison</title>
+<meta name="description" content="Compare real prices for surgery and dental treatment abroad — country by country, clinic by clinic — and request quotes from vetted clinics.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1f2b5b; --blue:#587dff; --light:#67dcff; --tint:#67dcff14;
+    --green:#027a48; --green-bg:#ecfdf3; --grey:#667085; --line:#e4e7ec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--tint),#fff 320px);color:var(--navy);min-height:100vh}
+  header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;max-width:960px;width:100%;margin:0 auto}
+  .wordmark{font-weight:800;font-size:20px;color:var(--navy);text-decoration:none}
+  .wordmark span{color:var(--blue)}
+  .trust{font-size:12px;color:var(--grey)}
+  main{width:100%;max-width:960px;margin:0 auto;padding:8px 24px 64px}
+  h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:6px}
+  .sub{color:var(--grey);font-size:15px;margin-bottom:20px;line-height:1.5}
+  .pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .pill{border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:9px 16px;font-family:inherit;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;transition:all .15s}
+  .pill:hover{border-color:var(--blue)}
+  .pill.sel{background:var(--navy);border-color:var(--navy);color:#fff}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+  .chip{border:1.5px solid var(--line);background:#fff;border-radius:10px;padding:8px 13px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--navy);cursor:pointer;transition:all .15s}
+  .chip:hover{border-color:var(--blue)}
+  .chip.sel{border-color:var(--blue);background:#587dff10;box-shadow:0 0 0 1px var(--blue)}
+  .meta{display:flex;gap:18px;flex-wrap:wrap;font-size:13px;color:var(--grey);margin-bottom:14px}
+  .meta b{color:var(--navy)}
+  .tablewrap{overflow-x:auto;background:#fff;border:1.5px solid var(--line);border-radius:14px}
+  table{border-collapse:collapse;width:100%;min-width:640px}
+  th{background:#f4f6ff;font-size:12.5px;text-transform:uppercase;letter-spacing:.03em;color:var(--grey);padding:12px 16px;text-align:left}
+  td{padding:14px 16px;font-size:15px;border-top:1px solid var(--line);vertical-align:middle}
+  tr.uk td{background:#fafbfc;color:var(--grey)}
+  tr.dest{cursor:pointer;transition:background .12s}
+  tr.dest:hover td{background:#587dff08}
+  tr.dest.sel td{background:#587dff10}
+  .saving{color:var(--green);font-weight:800;white-space:nowrap}
+  .cta{display:inline-block;background:var(--navy);color:#fff;font-size:13px;font-weight:700;border-radius:9px;padding:9px 14px;text-decoration:none;white-space:nowrap;transition:background .15s}
+  .cta:hover{background:#2a3a78}
+  .note{font-size:12.5px;color:var(--grey);margin:12px 4px 0;line-height:1.5}
+  h2{font-size:19px;font-weight:800;margin:34px 0 4px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-top:16px}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px}
+  .card h3{font-size:15.5px;font-weight:800;line-height:1.3;margin-bottom:2px}
+  .card .loc{font-size:13px;color:var(--grey);margin-bottom:10px}
+  .badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+  .badge{background:var(--green-bg);color:var(--green);font-size:11px;font-weight:700;border-radius:99px;padding:3px 9px}
+  .badge.plain{background:#f2f4f7;color:var(--grey)}
+  .plist{font-size:13px;color:var(--navy);line-height:1.6;margin-bottom:12px}
+  .plist span{color:var(--grey)}
+  .card .cta{width:100%;text-align:center}
+  .empty{color:var(--grey);font-size:14px;padding:24px 4px}
+  footer{padding:18px;text-align:center;font-size:12px;color:var(--grey)}
+  footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<header>
+  <a class="wordmark" href="https://www.theratravel.co.uk">Thera<span>Compare</span></a>
+  <div class="trust">Real prices · Vetted clinics · UK-based</div>
+</header>
+<main>
+  <h1>Compare treatment abroad, country by country</h1>
+  <p class="sub">Real 2026 price ranges from accredited clinics. Pick a treatment, compare destinations, then request free quotes from up to 3 vetted clinics.</p>
+
+  <div class="pills" id="cats"></div>
+  <div class="chips" id="procs"></div>
+  <div class="meta" id="meta"></div>
+  <div class="tablewrap"><table id="tbl"></table></div>
+  <p class="note" id="tnote"></p>
+
+  <h2 id="ctitle">Clinics</h2>
+  <p class="sub" style="margin-bottom:0">Click a country row above to filter. We introduce you — clinics never cold-contact you without your consent.</p>
+  <div class="cards" id="cards"></div>
+</main>
+<footer>
+  A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prices are indicative ranges, not quotes · <a id="f-assess" href="index.html">Get your personal estimate →</a>
+</footer>
+
+<script src="data.js"></script>
+<script>
+const D = window.PHOENIX_DATA;
+const CATS = [...new Set(D.procedures.map(p=>p.category))];
+let cat = null, proc = null, country = null;
+
+const qs = new URLSearchParams(location.search);
+const UTM = (slug)=>`utm_source=compare&utm_medium=engine&utm_campaign=${slug}`;
+const assessUrl = (p)=>`index.html?path=${p.path}&${UTM(p.slug)}`;
+
+function el(id){ return document.getElementById(id); }
+
+function pickCat(c){
+  cat = c; country = null;
+  proc = D.procedures.find(p=>p.category===c) || null;
+  render();
+}
+function pickProc(slug){
+  proc = D.procedures.find(p=>p.slug===slug); country = null;
+  render();
+}
+
+function render(){
+  el('cats').innerHTML = CATS.map(c=>
+    `<button class="pill ${c===cat?'sel':''}" onclick="pickCat('${c}')">${c}</button>`).join('');
+  el('procs').innerHTML = D.procedures.filter(p=>p.category===cat).map(p=>
+    `<button class="chip ${proc&&p.slug===proc.slug?'sel':''}" onclick="pickProc('${p.slug}')">${p.name}</button>`).join('');
+  if(!proc){ el('tbl').innerHTML=''; el('cards').innerHTML=''; return; }
+
+  el('meta').innerHTML =
+    `<span>UK private: <b>${proc.uk_price||'—'}</b></span>`+
+    (proc.nhs_wait?`<span>NHS: <b>${proc.nhs_wait}</b></span>`:'');
+
+  let rows = `<tr><th>Country</th><th>Typical price</th><th>Saving vs UK</th><th>Flight from UK</th><th>Vetted clinics</th><th></th></tr>`;
+  rows += `<tr class="uk"><td><b>United Kingdom (private)</b></td><td>${proc.uk_price||'—'}</td><td>—</td><td>—</td><td>—</td><td></td></tr>`;
+  rows += proc.rows.map(r=>
+    `<tr class="dest ${country===r.country?'sel':''}" onclick="country=country==='${r.country}'?null:'${r.country}';render()">
+      <td><b>${r.country}</b></td><td>${r.price}</td>
+      <td class="saving">${r.saving_pct?('save up to ~'+r.saving_pct+'%'):'—'}</td>
+      <td>${r.flight||'—'}</td><td>${r.clinics||'—'}</td>
+      <td><a class="cta" href="${assessUrl(proc)}" onclick="event.stopPropagation()">Get quotes</a></td>
+    </tr>`).join('');
+  el('tbl').innerHTML = rows;
+  el('tnote').textContent = 'Indicative ranges from clinic-published and researched 2026 prices; your quote depends on your case. Savings compare the lowest researched abroad price with the lowest typical UK private price.';
+
+  const catKey = cat.toLowerCase().replace(/s$/,'');
+  let cl = D.clinics.filter(c=>c.categories.includes(catKey)||c.categories.includes(cat.toLowerCase()));
+  if(country) cl = cl.filter(c=>c.country.toLowerCase().startsWith(country.toLowerCase().split(' ')[0]));
+  el('ctitle').textContent = `Clinics${country?' in '+country:''} (${cl.length})`;
+  el('cards').innerHTML = cl.length ? cl.map(c=>{
+    const badges = (c.accreditations||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,4)
+      .map(a=>`<span class="badge ${/JCI|ISO|TEMOS|NABH|CAP/i.test(a)?'':'plain'}">${a}</span>`).join('');
+    const prices = Object.entries(c.prices||{}).slice(0,3)
+      .map(([k,v])=>`${k}: <span>${v}</span>`).join('<br>');
+    return `<div class="card">
+      <h3>${c.name}</h3>
+      <div class="loc">${c.city}, ${c.country}${c.founded?' · est. '+c.founded:''}</div>
+      <div class="badges">${badges||'<span class="badge plain">Accreditation on request</span>'}</div>
+      <div class="plist">${prices||'<span>Price on assessment</span>'}</div>
+      <a class="cta" href="${assessUrl(proc)}">Request quotes via Thera</a>
+    </div>`;
+  }).join('') : `<p class="empty">No vetted clinics listed here yet for this category — request quotes and we'll match you manually.</p>`;
+
+  el('f-assess').href = assessUrl(proc);
+}
+
+// Deep-link: ?procedure=hip-replacement or ?category=Orthopaedics
+const p0 = qs.get('procedure') && D.procedures.find(p=>p.slug===qs.get('procedure'));
+if(p0){ cat = p0.category; proc = p0; }
+else {
+  const c0 = qs.get('category');
+  cat = CATS.find(c=>c.toLowerCase()===(c0||'').toLowerCase()) || CATS.find(c=>c==='Orthopaedics') || CATS[0];
+  proc = D.procedures.find(p=>p.category===cat && p.slug==='hip-replacement') || D.procedures.find(p=>p.category===cat);
+}
+render();
+</script>
+</body>
+</html>
