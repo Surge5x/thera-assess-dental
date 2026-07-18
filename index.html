@@ -232,8 +232,11 @@ async function submitLead(){
   const est = estimate();
   const params = new URLSearchParams(location.search);
   const body = new URLSearchParams({
+    // Webflow silently discards submissions whose source is off-domain,
+    // so send an on-domain virtual path and log the real URL in a field.
     name: FORM_NAME, pageId: PAGE_ID, elementId: ELEMENT_ID,
-    source: location.href,
+    source: "https://www.theratravel.co.uk/thera-assess",
+    "fields[Referrer]": location.href,
     "fields[First Name]": fname,
     "fields[Last Name]": lname,
     "fields[Email]": email,
