@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thera Assess — Treatment Abroad: 60-Second Quote</title>
-<meta name="description" content="Answer a few quick questions and get an instant indicative price for dental work or orthopaedic surgery abroad — plus free quotes from vetted clinics.">
+<title>Thera Assess — Compare Treatment Abroad & Get Free Quotes</title>
+<meta name="description" content="Compare real prices for dental work and orthopaedic surgery abroad. Take the 60-second assessment, see your personalised savings, and get free quotes from vetted clinics.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,22 +12,50 @@
 <style>
   :root{
     --navy:#1f2b5b; --blue:#587dff; --light:#67dcff; --tint:#67dcff14;
-    --green:#027a48; --green-bg:#ecfdf3; --grey:#667085; --line:#e4e7ec;
+    --green:#027a48; --green-bg:#ecfdf3; --star:#00b67a; --grey:#667085; --line:#e4e7ec;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--tint),#fff 320px);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
-  header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;max-width:640px;width:100%;margin:0 auto}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--tint),#fff 420px);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
+  header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;max-width:720px;width:100%;margin:0 auto}
   .wordmark{font-weight:800;font-size:20px;color:var(--navy);text-decoration:none}
   .wordmark span{color:var(--blue)}
   .trust{font-size:12px;color:var(--grey)}
-  main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:8px 24px 48px}
-  .progress{height:6px;background:var(--line);border-radius:3px;margin:4px 0 28px;overflow:hidden}
+  main{flex:1;width:100%;max-width:720px;margin:0 auto;padding:8px 24px 48px}
+  .progress{height:6px;background:var(--line);border-radius:3px;margin:4px 0 28px;overflow:hidden;display:none}
+  .progress.on{display:block}
   .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--light));border-radius:3px;transition:width .3s;width:12%}
   .step{display:none;animation:fade .25s ease}
   .step.active{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:8px}
   .sub{color:var(--grey);font-size:15px;margin-bottom:24px;line-height:1.5}
+
+  /* ── Landing ── */
+  .hero{text-align:center;padding-top:18px}
+  .hero h1{font-size:34px;line-height:1.2;margin-bottom:14px}
+  .hero h1 em{font-style:normal;color:var(--blue)}
+  .hero .sub{max-width:520px;margin:0 auto 26px;font-size:16.5px}
+  .btn-hero{display:inline-block;background:var(--navy);color:#fff;font-size:18px;font-weight:800;border:none;border-radius:14px;padding:18px 38px;cursor:pointer;font-family:inherit;transition:all .15s;box-shadow:0 8px 24px #1f2b5b2e}
+  .btn-hero:hover{background:#2a3a78;transform:translateY(-1px)}
+  .hero .micro{font-size:12.5px;color:var(--grey);margin-top:10px}
+  .stars-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px 0 6px;flex-wrap:wrap}
+  .stars{display:inline-flex;gap:3px}
+  .stars i{width:22px;height:22px;background:var(--star);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-size:14px}
+  .stars-row b{font-size:14.5px}
+  .stars-row span{font-size:13px;color:var(--grey)}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:28px 0 8px}
+  .stat{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
+  .stat b{display:block;font-size:22px;font-weight:800}
+  .stat span{font-size:12.5px;color:var(--grey);line-height:1.4;display:block;margin-top:3px}
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:26px 0;text-align:left}
+  .how div{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px}
+  .how b{display:block;font-size:14.5px;margin-bottom:4px}
+  .how b i{font-style:normal;color:var(--blue);margin-right:6px}
+  .how span{font-size:13px;color:var(--grey);line-height:1.5}
+  .quote{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;margin:8px 0 26px;font-size:14.5px;line-height:1.6;text-align:left}
+  .quote a{color:var(--blue);font-size:13px}
+
+  /* ── Form ── */
   .opts{display:grid;gap:10px}
   .opts.cat-hidden{display:none}
   .opt{border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;font-size:16px;font-weight:600;background:#fff;cursor:pointer;text-align:left;transition:all .15s;color:var(--navy);font-family:inherit;width:100%}
@@ -46,14 +74,30 @@
   .consent{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:13px;color:var(--grey);line-height:1.5}
   .consent input{margin-top:3px;width:16px;height:16px;flex-shrink:0}
   .error{color:#b42318;font-size:13px;margin-top:10px;display:none}
+
+  /* ── Findings ── */
   .result{text-align:center;padding-top:12px}
   .badge{display:inline-block;background:var(--green-bg);color:var(--green);font-size:13px;font-weight:700;border-radius:99px;padding:6px 14px;margin-bottom:18px}
   .price{font-size:38px;font-weight:800;margin:6px 0}
-  .price-note{color:var(--grey);font-size:14px;max-width:420px;margin:0 auto 20px;line-height:1.55}
-  .compare{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px auto;max-width:420px;font-size:14px;text-align:left}
+  .price-note{color:var(--grey);font-size:14px;max-width:460px;margin:0 auto 20px;line-height:1.55}
+  .compare{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px auto;max-width:460px;font-size:14px;text-align:left}
   .compare div{display:flex;justify-content:space-between;padding:6px 0}
   .compare div+div{border-top:1px solid var(--line)}
   .compare b{color:var(--green)}
+  h2{font-size:19px;font-weight:800;margin:34px 0 10px;text-align:left}
+  .tablewrap{overflow-x:auto;background:#fff;border:1.5px solid var(--line);border-radius:14px;text-align:left}
+  table{border-collapse:collapse;width:100%;min-width:520px}
+  th{background:#f4f6ff;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--grey);padding:11px 14px;text-align:left}
+  td{padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)}
+  tr.uk td{background:#fafbfc;color:var(--grey)}
+  tr.pref td{background:#587dff10}
+  .saving{color:var(--green);font-weight:800;white-space:nowrap}
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:14px;text-align:left}
+  .card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px}
+  .card h3{font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:2px}
+  .card .loc{font-size:12.5px;color:var(--grey);margin-bottom:8px}
+  .abadge{display:inline-block;background:var(--green-bg);color:var(--green);font-size:10.5px;font-weight:700;border-radius:99px;padding:2px 8px;margin:0 4px 4px 0}
+  .card .p{font-size:12.5px;color:var(--grey);line-height:1.5;margin-top:6px}
   details{margin-top:26px;font-size:12px;color:var(--grey);text-align:left}
   details summary{cursor:pointer;font-weight:600}
   details p{margin:8px 0;line-height:1.5}
@@ -67,11 +111,42 @@
   <div class="trust">Free · No obligation · UK-based</div>
 </header>
 <main>
-  <div class="progress"><i id="bar"></i></div>
+  <div class="progress" id="progress"><i id="bar"></i></div>
 
-  <section class="step active" data-step="1">
+  <!-- ── Landing ── -->
+  <section class="step active" data-step="0">
+    <div class="hero">
+      <h1>The same surgery.<br>The same standards.<br><em>Up to 80% less.</em></h1>
+      <p class="sub">Compare real prices from vetted, accredited clinics across 12 countries — for dental work and orthopaedic surgery. Take the 60-second assessment and see exactly what your treatment should cost.</p>
+      <button class="btn-hero" onclick="startFlow()">Start my free assessment →</button>
+      <p class="micro">60 seconds · No payment details · No obligation</p>
+      <div class="stars-row">
+        <span class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span>
+        <b>Excellent</b><span>· Rated five stars by UK patients</span>
+      </div>
+      <div class="statgrid">
+        <div class="stat"><b>42</b><span>vetted clinics, JCI &amp; ISO accredited</span></div>
+        <div class="stat"><b>12</b><span>countries compared, Lithuania to India</span></div>
+        <div class="stat"><b>80%</b><span>top saving vs UK private prices</span></div>
+        <div class="stat"><b>48h</b><span>quotes from matched clinics</span></div>
+      </div>
+      <div class="how">
+        <div><b><i>1</i>Tell us what you need</b><span>Six quick questions — treatment, timing, budget. No medical records needed yet.</span></div>
+        <div><b><i>2</i>See your findings</b><span>Your personalised price range, country-by-country comparison and matched clinics.</span></div>
+        <div><b><i>3</i>Get real quotes</b><span>Up to 3 vetted clinics send personalised quotes within 48 hours. You choose — or walk away.</span></div>
+      </div>
+      <div class="quote">
+        "Jonathan was quoted a year-long wait for surgery. Nine days after travelling, he was on crutches and recovering."
+        <a href="https://www.theratravel.co.uk/blog/how-jonathan-turned-a-year-long-wait-into-nine-days-on-crutches">Read his story →</a>
+      </div>
+      <button class="btn-hero" onclick="startFlow()">Start my free assessment →</button>
+    </div>
+  </section>
+
+  <!-- ── Form ── -->
+  <section class="step" data-step="1">
     <h1>What are you exploring?</h1>
-    <p class="sub">Answer a few quick questions to see an instant indicative price and get matched with up to 3 vetted clinics abroad.</p>
+    <p class="sub">Answer a few quick questions to see your personalised findings and get matched with up to 3 vetted clinics abroad.</p>
     <div class="opts" data-key="category">
       <button class="opt" data-val="Dental">Dental treatment <small>Implants, All-on-4, veneers, crowns</small></button>
       <button class="opt" data-val="Orthopaedic">Orthopaedic surgery <small>Hip, knee, spine, shoulder, ACL</small></button>
@@ -111,7 +186,7 @@
 
   <section class="step" data-step="4">
     <h1>Any preference on destination?</h1>
-    <p class="sub">Prices vary by destination — we'll factor this into your estimate.</p>
+    <p class="sub">Prices vary by destination — we'll factor this into your findings.</p>
     <div class="opts cat-dental" data-key="destination">
       <button class="opt" data-val="Turkey">Turkey <small>Lowest prices, all-inclusive packages</small></button>
       <button class="opt" data-val="Hungary">Hungary <small>Europe's longest-established dental destination</small></button>
@@ -161,7 +236,7 @@
 
   <section class="step" data-step="7">
     <h1>Where should we send your quotes?</h1>
-    <p class="sub">See your instant estimate on the next screen. Up to 3 vetted clinics matching your answers will send personalised quotes — free, no obligation.</p>
+    <p class="sub">Your findings are ready on the next screen — personalised price range, country comparison and matched clinics. Up to 3 vetted clinics will also send personalised quotes — free, no obligation.</p>
     <label for="fname">First name</label>
     <input type="text" id="fname" autocomplete="given-name">
     <label for="lname">Last name</label>
@@ -177,7 +252,7 @@
     <p class="error" id="err"></p>
     <div class="nav">
       <button class="btn btn-ghost" onclick="back()">Back</button>
-      <button class="btn btn-primary" id="submitBtn" onclick="submitLead()">See my estimate →</button>
+      <button class="btn btn-primary" id="submitBtn" onclick="submitLead()">See my findings →</button>
     </div>
     <details>
       <summary>Privacy notice</summary>
@@ -185,13 +260,15 @@
     </details>
   </section>
 
+  <!-- ── Findings ── -->
   <section class="step" data-step="8">
     <div class="result">
       <div class="badge">✓ Request received — clinics will be in touch within 2 working days</div>
-      <p class="sub" style="margin-bottom:4px">Indicative price abroad for <b id="r-treat"></b>:</p>
+      <p class="sub" style="margin-bottom:4px">Your indicative price abroad for <b id="r-treat"></b>:</p>
       <div class="price" id="r-price"></div>
       <div class="compare" id="r-compare"></div>
-      <p class="price-note">This is an indicative range based on typical 2026 prices<span id="r-dest"></span>, not a quote. Your personalised quotes from vetted clinics — based on your actual case — are on their way to your inbox.</p>
+      <div id="r-engine"></div>
+      <p class="price-note" style="margin-top:22px">These are indicative ranges based on typical 2026 prices, not quotes. Your personalised quotes from vetted clinics — based on your actual case — are on their way to your inbox.</p>
       <p class="price-note">Meanwhile, read our <a id="r-guide" href="https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad">honest guide to having treatment abroad safely</a>.</p>
     </div>
   </section>
@@ -200,6 +277,7 @@
   A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prefer to share full medical details now? <a href="https://www.theratravel.co.uk/medical-procedure-quote">Use the detailed form</a>
 </footer>
 
+<script src="data.js"></script>
 <script>
 const SITE_ID = "66fd0ce3ac80a5a578e8bb61";
 const FORM_NAME = "wf-form-Medical-procedure-form";
@@ -230,8 +308,18 @@ const GUIDES = {
   Orthopaedic: "https://www.theratravel.co.uk/blog/best-country-for-orthopaedic-surgery-abroad",
 };
 
+// treatment answer -> Phoenix Procedures slug (for the findings engine table)
+const PROC_SLUG = {
+  "Single dental implant": "dental-implants", "Multiple dental implants": "dental-implants",
+  "All-on-4": "all-on-4", "Full mouth restoration": "full-mouth-implants",
+  "Veneers / smile makeover": "veneers", "Crowns or bridges": "crowns-bridges",
+  "Hip replacement": "hip-replacement", "Knee replacement": "knee-replacement",
+  "Spinal surgery": "spinal-fusion", "ACL reconstruction": "acl-reconstruction",
+  "Shoulder replacement": "shoulder-replacement",
+};
+
 const answers = {};
-let step = 1;
+let step = 0;
 const TOTAL = 8;
 
 function applyCategory(cat){
@@ -242,11 +330,13 @@ function applyCategory(cat){
 function show(n){
   document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
   document.querySelector(`[data-step="${n}"]`).classList.add('active');
-  document.getElementById('bar').style.width = (n/TOTAL*100)+'%';
+  document.getElementById('progress').classList.toggle('on', n>=1);
+  document.getElementById('bar').style.width = (Math.max(n,1)/TOTAL*100)+'%';
   step = n;
   window.scrollTo({top:0,behavior:'smooth'});
 }
-function back(){ if(step>1) show(step-1); }
+function back(){ if(step>1) show(step-1); else show(0); }
+function startFlow(){ show(answers.category ? 2 : 1); }
 
 document.querySelectorAll('.opts').forEach(group=>{
   group.querySelectorAll('.opt').forEach(btn=>{
@@ -260,11 +350,13 @@ document.querySelectorAll('.opts').forEach(group=>{
   });
 });
 
-// Deep-link: ?path=ortho or ?path=dental preselects the category and skips step 1.
+// Deep-link: ?path=ortho|dental preselects category; ?start=1 skips the landing.
 (function(){
-  const p = new URLSearchParams(location.search).get('path');
+  const q = new URLSearchParams(location.search);
+  const p = q.get('path');
   const cat = p==='ortho' ? 'Orthopaedic' : p==='dental' ? 'Dental' : null;
-  if(cat){ answers.category = cat; applyCategory(cat); show(2); }
+  if(cat){ answers.category = cat; applyCategory(cat); }
+  if(cat || q.get('start')) show(cat ? 2 : 1);
 })();
 
 function fmt(n){ return '£'+n.toLocaleString('en-GB'); }
@@ -322,20 +414,57 @@ async function submitLead(){
   }catch(e){
     err.textContent = "Something went wrong sending your request. Please try again, or email hello@theratravel.co.uk and we'll pick it up personally.";
     err.style.display='block';
-    btn.disabled=false; btn.textContent='See my estimate →';
+    btn.disabled=false; btn.textContent='See my findings →';
   }
+}
+
+function engineFindings(){
+  const D = window.PHOENIX_DATA;
+  if(!D) return '';
+  const slug = PROC_SLUG[answers.treatment];
+  const proc = slug && D.procedures.find(p=>p.slug===slug);
+  if(!proc || !proc.rows.length) return '';
+  const pref = answers.destination;
+  let html = `<h2>How the countries compare for ${proc.name.toLowerCase()}</h2>
+    <div class="tablewrap"><table>
+    <tr><th>Country</th><th>Typical price</th><th>Saving vs UK</th><th>Flight from UK</th></tr>
+    <tr class="uk"><td><b>United Kingdom (private)</b></td><td>${proc.uk_price||'—'}</td><td>—</td><td>—</td></tr>`;
+  html += proc.rows.map(r=>
+    `<tr class="${pref && pref.includes(r.country) ? 'pref':''}">
+      <td><b>${r.country}</b>${pref && pref.includes(r.country) ? ' <span style="font-size:11px;color:var(--blue);font-weight:700">YOUR PICK</span>':''}</td>
+      <td>${r.price}</td>
+      <td class="saving">${r.saving_pct?('up to ~'+r.saving_pct+'%'):'—'}</td>
+      <td>${r.flight||'—'}</td></tr>`).join('');
+  html += `</table></div>`;
+
+  const catKey = answers.category==='Orthopaedic' ? 'orthopaedic' : 'dental';
+  let cl = D.clinics.filter(c=>c.categories.includes(catKey));
+  if(pref && pref!=='No preference') cl = cl.filter(c=>pref.includes(c.country)) .concat(cl.filter(c=>!pref.includes(c.country)));
+  cl = cl.slice(0,3);
+  if(cl.length){
+    html += `<h2>Vetted clinics we match patients like you with</h2><div class="cards">`;
+    html += cl.map(c=>{
+      const badges=(c.accreditations||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,3)
+        .map(a=>`<span class="abadge">${a}</span>`).join('');
+      const price = Object.entries(c.prices||{})[0];
+      return `<div class="card"><h3>${c.name}</h3><div class="loc">${c.city}, ${c.country}</div>
+        ${badges}<div class="p">${price?price[0]+': '+price[1]:'Price on assessment'}</div></div>`;
+    }).join('');
+    html += `</div><p class="price-note" style="margin-top:14px">Your quotes may come from these or other vetted partners matched to your case.</p>`;
+  }
+  return html;
 }
 
 function showResult(est){
   document.getElementById('r-treat').textContent = (answers.treatment||'').replace(' (orthopaedic)','').toLowerCase();
   document.getElementById('r-price').textContent = fmt(est.range[0])+' – '+fmt(est.range[1]);
-  document.getElementById('r-dest').textContent = est.destLabel;
   document.getElementById('r-guide').href = GUIDES[answers.category] || GUIDES.Dental;
   const save = [Math.max(0,est.uk[0]-est.range[1]), Math.max(0,est.uk[1]-est.range[0])];
   document.getElementById('r-compare').innerHTML =
     `<div><span>Typical UK private price</span><span>${fmt(est.uk[0])} – ${fmt(est.uk[1])}</span></div>`+
-    `<div><span>Typical price abroad</span><span>${fmt(est.range[0])} – ${fmt(est.range[1])}</span></div>`+
+    `<div><span>Typical price${est.destLabel}</span><span>${fmt(est.range[0])} – ${fmt(est.range[1])}</span></div>`+
     `<div><span>Potential saving</span><b>${fmt(save[0])} – ${fmt(save[1])}</b></div>`;
+  document.getElementById('r-engine').innerHTML = engineFindings();
   show(8);
 }
 </script>
