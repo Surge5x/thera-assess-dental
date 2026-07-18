@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thera Assess — Dental Treatment Abroad: 60-Second Quote</title>
-<meta name="description" content="Answer six quick questions and get an instant indicative price for dental implants, All-on-4, veneers or crowns abroad — plus free quotes from vetted clinics.">
+<title>Thera Assess — Treatment Abroad: 60-Second Quote</title>
+<meta name="description" content="Answer a few quick questions and get an instant indicative price for dental work or orthopaedic surgery abroad — plus free quotes from vetted clinics.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +22,14 @@
   .trust{font-size:12px;color:var(--grey)}
   main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:8px 24px 48px}
   .progress{height:6px;background:var(--line);border-radius:3px;margin:4px 0 28px;overflow:hidden}
-  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--light));border-radius:3px;transition:width .3s;width:14%}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--light));border-radius:3px;transition:width .3s;width:12%}
   .step{display:none;animation:fade .25s ease}
   .step.active{display:block}
   @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
   h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:8px}
   .sub{color:var(--grey);font-size:15px;margin-bottom:24px;line-height:1.5}
   .opts{display:grid;gap:10px}
+  .opts.cat-hidden{display:none}
   .opt{border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;font-size:16px;font-weight:600;background:#fff;cursor:pointer;text-align:left;transition:all .15s;color:var(--navy);font-family:inherit;width:100%}
   .opt small{display:block;font-weight:400;font-size:13px;color:var(--grey);margin-top:2px}
   .opt:hover{border-color:var(--blue)}
@@ -69,9 +70,17 @@
   <div class="progress"><i id="bar"></i></div>
 
   <section class="step active" data-step="1">
+    <h1>What are you exploring?</h1>
+    <p class="sub">Answer a few quick questions to see an instant indicative price and get matched with up to 3 vetted clinics abroad.</p>
+    <div class="opts" data-key="category">
+      <button class="opt" data-val="Dental">Dental treatment <small>Implants, All-on-4, veneers, crowns</small></button>
+      <button class="opt" data-val="Orthopaedic">Orthopaedic surgery <small>Hip, knee, spine, shoulder, ACL</small></button>
+    </div>
+  </section>
+
+  <section class="step" data-step="2">
     <h1>What treatment are you considering?</h1>
-    <p class="sub">Answer six quick questions to see an instant indicative price and get matched with up to 3 vetted clinics abroad.</p>
-    <div class="opts" data-key="treatment">
+    <div class="opts cat-dental" data-key="treatment">
       <button class="opt" data-val="Single dental implant">A single dental implant</button>
       <button class="opt" data-val="Multiple dental implants">Several implants (2–5 teeth)</button>
       <button class="opt" data-val="All-on-4">All-on-4 <small>A full arch fixed on four implants</small></button>
@@ -80,30 +89,46 @@
       <button class="opt" data-val="Crowns or bridges">Crowns or bridges</button>
       <button class="opt" data-val="Not sure yet">Not sure yet <small>We'll help you work it out</small></button>
     </div>
-  </section>
-
-  <section class="step" data-step="2">
-    <h1>Where are you in the process?</h1>
-    <div class="opts" data-key="status">
-      <button class="opt" data-val="Have a UK quote already">I already have a UK quote <small>We'll show you what the same work costs abroad</small></button>
-      <button class="opt" data-val="Seen a dentist, no quote yet">I've seen a dentist but have no quote yet</button>
-      <button class="opt" data-val="Researching options">I'm researching my options</button>
+    <div class="opts cat-ortho cat-hidden" data-key="treatment">
+      <button class="opt" data-val="Hip replacement">Hip replacement</button>
+      <button class="opt" data-val="Knee replacement">Knee replacement</button>
+      <button class="opt" data-val="Spinal surgery">Spinal surgery <small>Fusion, discectomy, decompression</small></button>
+      <button class="opt" data-val="ACL reconstruction">ACL reconstruction</button>
+      <button class="opt" data-val="Shoulder replacement">Shoulder replacement</button>
+      <button class="opt" data-val="Not sure yet (orthopaedic)">Not sure yet <small>We'll help you work it out</small></button>
     </div>
   </section>
 
   <section class="step" data-step="3">
+    <h1>Where are you in the process?</h1>
+    <div class="opts" data-key="status">
+      <button class="opt" data-val="Have a UK quote already">I already have a UK quote <small>We'll show you what the same work costs abroad</small></button>
+      <button class="opt" data-val="Had consultation, no quote yet">I've had a consultation but no quote yet</button>
+      <button class="opt" data-val="On an NHS waiting list">I'm on an NHS waiting list</button>
+      <button class="opt" data-val="Researching options">I'm researching my options</button>
+    </div>
+  </section>
+
+  <section class="step" data-step="4">
     <h1>Any preference on destination?</h1>
-    <p class="sub">All destinations use the same major implant brands. Prices vary — we'll factor this into your estimate.</p>
-    <div class="opts" data-key="destination">
+    <p class="sub">Prices vary by destination — we'll factor this into your estimate.</p>
+    <div class="opts cat-dental" data-key="destination">
       <button class="opt" data-val="Turkey">Turkey <small>Lowest prices, all-inclusive packages</small></button>
       <button class="opt" data-val="Hungary">Hungary <small>Europe's longest-established dental destination</small></button>
       <button class="opt" data-val="Poland">Poland <small>EU standards, cheapest UK flights</small></button>
       <button class="opt" data-val="Croatia or Spain">Croatia or Spain</button>
       <button class="opt" data-val="No preference">No preference — best value for my case</button>
     </div>
+    <div class="opts cat-ortho cat-hidden" data-key="destination">
+      <button class="opt" data-val="Lithuania">Lithuania <small>Lowest EU prices, JCI-accredited options, 2.5h flight</small></button>
+      <button class="opt" data-val="Poland">Poland <small>EU standards, established UK patient corridor</small></button>
+      <button class="opt" data-val="India">India <small>JCI hospital groups, deepest savings on complex surgery</small></button>
+      <button class="opt" data-val="Turkey">Turkey <small>Major accredited hospital groups</small></button>
+      <button class="opt" data-val="No preference">No preference — best value for my case</button>
+    </div>
   </section>
 
-  <section class="step" data-step="4">
+  <section class="step" data-step="5">
     <h1>When would you like treatment?</h1>
     <div class="opts" data-key="timeline">
       <button class="opt" data-val="Within 3 months">Within 3 months</button>
@@ -113,10 +138,10 @@
     </div>
   </section>
 
-  <section class="step" data-step="5">
+  <section class="step" data-step="6">
     <h1>Roughly what budget do you have in mind?</h1>
     <p class="sub">This helps clinics quote realistically. There's no wrong answer.</p>
-    <div class="opts" data-key="budget">
+    <div class="opts cat-dental" data-key="budget">
       <button class="opt" data-val="Under £1,000">Under £1,000</button>
       <button class="opt" data-val="£1,000–£3,000">£1,000–£3,000</button>
       <button class="opt" data-val="£3,000–£6,000">£3,000–£6,000</button>
@@ -124,9 +149,17 @@
       <button class="opt" data-val="Over £12,000">Over £12,000</button>
       <button class="opt" data-val="Not sure">Not sure yet</button>
     </div>
+    <div class="opts cat-ortho cat-hidden" data-key="budget">
+      <button class="opt" data-val="Under £4,000">Under £4,000</button>
+      <button class="opt" data-val="£4,000–£7,000">£4,000–£7,000</button>
+      <button class="opt" data-val="£7,000–£10,000">£7,000–£10,000</button>
+      <button class="opt" data-val="£10,000–£15,000">£10,000–£15,000</button>
+      <button class="opt" data-val="Over £15,000">Over £15,000</button>
+      <button class="opt" data-val="Not sure">Not sure yet</button>
+    </div>
   </section>
 
-  <section class="step" data-step="6">
+  <section class="step" data-step="7">
     <h1>Where should we send your quotes?</h1>
     <p class="sub">See your instant estimate on the next screen. Up to 3 vetted clinics matching your answers will send personalised quotes — free, no obligation.</p>
     <label for="fname">First name</label>
@@ -148,18 +181,18 @@
     </div>
     <details>
       <summary>Privacy notice</summary>
-      <p>Thera Travel (theratravel.co.uk, UK) collects the details you enter here for one purpose: matching you with up to 3 vetted partner dental clinics and enabling them to send you quotes. Legal basis: your consent. Your details go to the partner clinics matched to your answers and are stored in our form-handling system (Webflow). We don't sell your data or add you to marketing lists. To withdraw consent or request deletion, email hello@theratravel.co.uk. Clinics process your data under their own privacy notices once you're introduced.</p>
+      <p>Thera Travel (theratravel.co.uk, UK) collects the details you enter here for one purpose: matching you with up to 3 vetted partner clinics and enabling them to send you quotes. Legal basis: your consent. Your details go to the partner clinics matched to your answers and are stored in our form-handling system (Webflow). We don't sell your data or add you to marketing lists. To withdraw consent or request deletion, email hello@theratravel.co.uk. Clinics process your data under their own privacy notices once you're introduced.</p>
     </details>
   </section>
 
-  <section class="step" data-step="7">
+  <section class="step" data-step="8">
     <div class="result">
       <div class="badge">✓ Request received — clinics will be in touch within 2 working days</div>
       <p class="sub" style="margin-bottom:4px">Indicative price abroad for <b id="r-treat"></b>:</p>
       <div class="price" id="r-price"></div>
       <div class="compare" id="r-compare"></div>
       <p class="price-note">This is an indicative range based on typical 2026 prices<span id="r-dest"></span>, not a quote. Your personalised quotes from vetted clinics — based on your actual case — are on their way to your inbox.</p>
-      <p class="price-note">Meanwhile, read our <a href="https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad">honest guide to having dental work done abroad safely</a>.</p>
+      <p class="price-note">Meanwhile, read our <a id="r-guide" href="https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad">honest guide to having treatment abroad safely</a>.</p>
     </div>
   </section>
 </main>
@@ -173,8 +206,9 @@ const FORM_NAME = "wf-form-Medical-procedure-form";
 const PAGE_ID = "691fda0fcb46d0430f9f719d";
 const ELEMENT_ID = "03fc190c-fc36-e4d7-de13-5f77fdcbcc69";
 
-// Indicative ranges, GBP, typical 2026 prices (from the cluster research pack).
-// [min, max] per destination; "abroad" = blended across destinations.
+// Indicative ranges, GBP, typical 2026 prices.
+// Dental: from the dental cluster research pack. Ortho: from the July 2026 Phoenix
+// clinic research (Lithuania/Poland May figures, India USD packages at ~0.78 GBP/USD).
 const PRICES = {
   "Single dental implant": {Turkey:[400,1100], Hungary:[800,1150], Poland:[400,1300], "Croatia or Spain":[570,1750], abroad:[400,1300], uk:[1800,3500]},
   "Multiple dental implants": {Turkey:[1200,4400], Hungary:[2400,4600], Poland:[1200,5200], "Croatia or Spain":[1700,7000], abroad:[1200,5200], uk:[5400,14000]},
@@ -183,11 +217,27 @@ const PRICES = {
   "Veneers / smile makeover": {Turkey:[1600,4000], Hungary:[2400,5000], Poland:[2400,5000], "Croatia or Spain":[1800,6000], abroad:[1600,5000], uk:[6400,11300]},
   "Crowns or bridges": {Turkey:[150,450], Hungary:[200,500], Poland:[200,500], "Croatia or Spain":[220,600], abroad:[150,600], uk:[500,1200]},
   "Not sure yet": {abroad:[400,7000], uk:[1800,15000]},
+  "Hip replacement": {Lithuania:[2450,3900], Poland:[3900,8100], India:[3300,5200], Turkey:[7000,12000], abroad:[2450,8100], uk:[12000,16500]},
+  "Knee replacement": {Lithuania:[2600,4300], Poland:[4300,8100], India:[3300,5200], Turkey:[6500,11000], abroad:[2600,8100], uk:[11500,15500]},
+  "Spinal surgery": {Poland:[6900,12900], India:[5300,6500], Turkey:[8000,14000], abroad:[5300,12900], uk:[20000,35000]},
+  "ACL reconstruction": {Lithuania:[2150,3450], Poland:[2600,4300], Turkey:[3000,5000], abroad:[2150,5000], uk:[7000,10500]},
+  "Shoulder replacement": {Lithuania:[4300,6900], Poland:[5200,8600], abroad:[4300,8600], uk:[12000,16000]},
+  "Not sure yet (orthopaedic)": {abroad:[2150,12900], uk:[7000,35000]},
+};
+
+const GUIDES = {
+  Dental: "https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad",
+  Orthopaedic: "https://www.theratravel.co.uk/blog/best-country-for-orthopaedic-surgery-abroad",
 };
 
 const answers = {};
 let step = 1;
-const TOTAL = 7;
+const TOTAL = 8;
+
+function applyCategory(cat){
+  document.querySelectorAll('.cat-dental').forEach(el=>el.classList.toggle('cat-hidden', cat!=='Dental'));
+  document.querySelectorAll('.cat-ortho').forEach(el=>el.classList.toggle('cat-hidden', cat!=='Orthopaedic'));
+}
 
 function show(n){
   document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
@@ -204,15 +254,24 @@ document.querySelectorAll('.opts').forEach(group=>{
       group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
       btn.classList.add('sel');
       answers[group.dataset.key] = btn.dataset.val;
+      if(group.dataset.key==='category') applyCategory(btn.dataset.val);
       setTimeout(()=>show(step+1), 180);
     });
   });
 });
 
+// Deep-link: ?path=ortho or ?path=dental preselects the category and skips step 1.
+(function(){
+  const p = new URLSearchParams(location.search).get('path');
+  const cat = p==='ortho' ? 'Orthopaedic' : p==='dental' ? 'Dental' : null;
+  if(cat){ answers.category = cat; applyCategory(cat); show(2); }
+})();
+
 function fmt(n){ return '£'+n.toLocaleString('en-GB'); }
 
 function estimate(){
-  const p = PRICES[answers.treatment] || PRICES["Not sure yet"];
+  const fallback = answers.category==='Orthopaedic' ? PRICES["Not sure yet (orthopaedic)"] : PRICES["Not sure yet"];
+  const p = PRICES[answers.treatment] || fallback;
   const dest = answers.destination;
   const range = (dest && p[dest]) ? p[dest] : p.abroad;
   return {range, uk:p.uk, destLabel:(dest && p[dest]) ? ' in '+dest : ' abroad'};
@@ -229,6 +288,7 @@ async function submitLead(){
   if(phone.replace(/\D/g,'').length<10){ err.textContent='Please enter a valid phone number.'; err.style.display='block'; return; }
   if(!f('consent').checked){ err.textContent='Please tick the consent box so clinics can contact you.'; err.style.display='block'; return; }
 
+  const isOrtho = answers.category==='Orthopaedic';
   const est = estimate();
   const params = new URLSearchParams(location.search);
   const body = new URLSearchParams({
@@ -241,7 +301,7 @@ async function submitLead(){
     "fields[Last Name]": lname,
     "fields[Email]": email,
     "fields[Phone]": phone,
-    "fields[Procedure Interest]": "Dental Implants",
+    "fields[Procedure Interest]": isOrtho ? "Orthopaedic Surgery" : "Dental Implants",
     "fields[Treatment detail]": answers.treatment||"",
     "fields[Current status]": answers.status||"",
     "fields[Destination preference]": answers.destination||"",
@@ -249,7 +309,7 @@ async function submitLead(){
     "fields[Budget band]": answers.budget||"",
     "fields[Assessment summary]": `${answers.treatment} | ${answers.destination} | est ${fmt(est.range[0])}–${fmt(est.range[1])}`,
     "fields[Consent]": "true",
-    "fields[Lead source]": "thera-assess-dental",
+    "fields[Lead source]": isOrtho ? "thera-assess-ortho" : "thera-assess-dental",
     "fields[UTM]": ["utm_source","utm_medium","utm_campaign"].map(k=>params.get(k)||"").join("/"),
   });
 
@@ -267,15 +327,16 @@ async function submitLead(){
 }
 
 function showResult(est){
-  document.getElementById('r-treat').textContent = (answers.treatment||'').toLowerCase();
+  document.getElementById('r-treat').textContent = (answers.treatment||'').replace(' (orthopaedic)','').toLowerCase();
   document.getElementById('r-price').textContent = fmt(est.range[0])+' – '+fmt(est.range[1]);
   document.getElementById('r-dest').textContent = est.destLabel;
+  document.getElementById('r-guide').href = GUIDES[answers.category] || GUIDES.Dental;
   const save = [Math.max(0,est.uk[0]-est.range[1]), Math.max(0,est.uk[1]-est.range[0])];
   document.getElementById('r-compare').innerHTML =
     `<div><span>Typical UK private price</span><span>${fmt(est.uk[0])} – ${fmt(est.uk[1])}</span></div>`+
     `<div><span>Typical price abroad</span><span>${fmt(est.range[0])} – ${fmt(est.range[1])}</span></div>`+
     `<div><span>Potential saving</span><b>${fmt(save[0])} – ${fmt(save[1])}</b></div>`;
-  show(7);
+  show(8);
 }
 </script>
 </body>
