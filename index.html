@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thera Assess — Dental Treatment Abroad: 60-Second Quote</title>
+<meta name="description" content="Answer six quick questions and get an instant indicative price for dental implants, All-on-4, veneers or crowns abroad — plus free quotes from vetted clinics.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1f2b5b; --blue:#587dff; --light:#67dcff; --tint:#67dcff14;
+    --green:#027a48; --green-bg:#ecfdf3; --grey:#667085; --line:#e4e7ec;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--tint),#fff 320px);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
+  header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;max-width:640px;width:100%;margin:0 auto}
+  .wordmark{font-weight:800;font-size:20px;color:var(--navy);text-decoration:none}
+  .wordmark span{color:var(--blue)}
+  .trust{font-size:12px;color:var(--grey)}
+  main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:8px 24px 48px}
+  .progress{height:6px;background:var(--line);border-radius:3px;margin:4px 0 28px;overflow:hidden}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--light));border-radius:3px;transition:width .3s;width:14%}
+  .step{display:none;animation:fade .25s ease}
+  .step.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:8px}
+  .sub{color:var(--grey);font-size:15px;margin-bottom:24px;line-height:1.5}
+  .opts{display:grid;gap:10px}
+  .opt{border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;font-size:16px;font-weight:600;background:#fff;cursor:pointer;text-align:left;transition:all .15s;color:var(--navy);font-family:inherit;width:100%}
+  .opt small{display:block;font-weight:400;font-size:13px;color:var(--grey);margin-top:2px}
+  .opt:hover{border-color:var(--blue)}
+  .opt.sel{border-color:var(--blue);background:#587dff10;box-shadow:0 0 0 1px var(--blue)}
+  .nav{display:flex;gap:12px;margin-top:24px}
+  .btn{font-family:inherit;font-size:16px;font-weight:700;border-radius:12px;padding:14px 26px;cursor:pointer;border:none;transition:all .15s}
+  .btn-primary{background:var(--navy);color:#fff;flex:1}
+  .btn-primary:hover{background:#2a3a78}
+  .btn-primary:disabled{opacity:.4;cursor:not-allowed}
+  .btn-ghost{background:none;border:1.5px solid var(--line);color:var(--grey)}
+  label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
+  input[type=text],input[type=email],input[type=tel]{width:100%;font-family:inherit;font-size:16px;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;color:var(--navy)}
+  input:focus{outline:none;border-color:var(--blue)}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:13px;color:var(--grey);line-height:1.5}
+  .consent input{margin-top:3px;width:16px;height:16px;flex-shrink:0}
+  .error{color:#b42318;font-size:13px;margin-top:10px;display:none}
+  .result{text-align:center;padding-top:12px}
+  .badge{display:inline-block;background:var(--green-bg);color:var(--green);font-size:13px;font-weight:700;border-radius:99px;padding:6px 14px;margin-bottom:18px}
+  .price{font-size:38px;font-weight:800;margin:6px 0}
+  .price-note{color:var(--grey);font-size:14px;max-width:420px;margin:0 auto 20px;line-height:1.55}
+  .compare{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px auto;max-width:420px;font-size:14px;text-align:left}
+  .compare div{display:flex;justify-content:space-between;padding:6px 0}
+  .compare div+div{border-top:1px solid var(--line)}
+  .compare b{color:var(--green)}
+  details{margin-top:26px;font-size:12px;color:var(--grey);text-align:left}
+  details summary{cursor:pointer;font-weight:600}
+  details p{margin:8px 0;line-height:1.5}
+  footer{padding:18px;text-align:center;font-size:12px;color:var(--grey)}
+  footer a{color:var(--blue)}
+</style>
+</head>
+<body>
+<header>
+  <a class="wordmark" href="https://www.theratravel.co.uk">Thera<span>Assess</span></a>
+  <div class="trust">Free · No obligation · UK-based</div>
+</header>
+<main>
+  <div class="progress"><i id="bar"></i></div>
+
+  <section class="step active" data-step="1">
+    <h1>What treatment are you considering?</h1>
+    <p class="sub">Answer six quick questions to see an instant indicative price and get matched with up to 3 vetted clinics abroad.</p>
+    <div class="opts" data-key="treatment">
+      <button class="opt" data-val="Single dental implant">A single dental implant</button>
+      <button class="opt" data-val="Multiple dental implants">Several implants (2–5 teeth)</button>
+      <button class="opt" data-val="All-on-4">All-on-4 <small>A full arch fixed on four implants</small></button>
+      <button class="opt" data-val="Full mouth restoration">Full-mouth restoration</button>
+      <button class="opt" data-val="Veneers / smile makeover">Veneers / smile makeover</button>
+      <button class="opt" data-val="Crowns or bridges">Crowns or bridges</button>
+      <button class="opt" data-val="Not sure yet">Not sure yet <small>We'll help you work it out</small></button>
+    </div>
+  </section>
+
+  <section class="step" data-step="2">
+    <h1>Where are you in the process?</h1>
+    <div class="opts" data-key="status">
+      <button class="opt" data-val="Have a UK quote already">I already have a UK quote <small>We'll show you what the same work costs abroad</small></button>
+      <button class="opt" data-val="Seen a dentist, no quote yet">I've seen a dentist but have no quote yet</button>
+      <button class="opt" data-val="Researching options">I'm researching my options</button>
+    </div>
+  </section>
+
+  <section class="step" data-step="3">
+    <h1>Any preference on destination?</h1>
+    <p class="sub">All destinations use the same major implant brands. Prices vary — we'll factor this into your estimate.</p>
+    <div class="opts" data-key="destination">
+      <button class="opt" data-val="Turkey">Turkey <small>Lowest prices, all-inclusive packages</small></button>
+      <button class="opt" data-val="Hungary">Hungary <small>Europe's longest-established dental destination</small></button>
+      <button class="opt" data-val="Poland">Poland <small>EU standards, cheapest UK flights</small></button>
+      <button class="opt" data-val="Croatia or Spain">Croatia or Spain</button>
+      <button class="opt" data-val="No preference">No preference — best value for my case</button>
+    </div>
+  </section>
+
+  <section class="step" data-step="4">
+    <h1>When would you like treatment?</h1>
+    <div class="opts" data-key="timeline">
+      <button class="opt" data-val="Within 3 months">Within 3 months</button>
+      <button class="opt" data-val="3-6 months">In 3–6 months</button>
+      <button class="opt" data-val="6-12 months">In 6–12 months</button>
+      <button class="opt" data-val="Just exploring">Just exploring for now</button>
+    </div>
+  </section>
+
+  <section class="step" data-step="5">
+    <h1>Roughly what budget do you have in mind?</h1>
+    <p class="sub">This helps clinics quote realistically. There's no wrong answer.</p>
+    <div class="opts" data-key="budget">
+      <button class="opt" data-val="Under £1,000">Under £1,000</button>
+      <button class="opt" data-val="£1,000–£3,000">£1,000–£3,000</button>
+      <button class="opt" data-val="£3,000–£6,000">£3,000–£6,000</button>
+      <button class="opt" data-val="£6,000–£12,000">£6,000–£12,000</button>
+      <button class="opt" data-val="Over £12,000">Over £12,000</button>
+      <button class="opt" data-val="Not sure">Not sure yet</button>
+    </div>
+  </section>
+
+  <section class="step" data-step="6">
+    <h1>Where should we send your quotes?</h1>
+    <p class="sub">See your instant estimate on the next screen. Up to 3 vetted clinics matching your answers will send personalised quotes — free, no obligation.</p>
+    <label for="fname">First name</label>
+    <input type="text" id="fname" autocomplete="given-name">
+    <label for="lname">Last name</label>
+    <input type="text" id="lname" autocomplete="family-name">
+    <label for="email">Email</label>
+    <input type="email" id="email" autocomplete="email">
+    <label for="phone">Phone (for clinics to send quotes via WhatsApp/call)</label>
+    <input type="tel" id="phone" autocomplete="tel">
+    <div class="consent">
+      <input type="checkbox" id="consent">
+      <span>I agree to Thera sharing my details with up to 3 vetted partner clinics so they can contact me with quotes for the treatment I've described. I can withdraw consent at any time — see the privacy notice below.</span>
+    </div>
+    <p class="error" id="err"></p>
+    <div class="nav">
+      <button class="btn btn-ghost" onclick="back()">Back</button>
+      <button class="btn btn-primary" id="submitBtn" onclick="submitLead()">See my estimate →</button>
+    </div>
+    <details>
+      <summary>Privacy notice</summary>
+      <p>Thera Travel (theratravel.co.uk, UK) collects the details you enter here for one purpose: matching you with up to 3 vetted partner dental clinics and enabling them to send you quotes. Legal basis: your consent. Your details go to the partner clinics matched to your answers and are stored in our form-handling system (Webflow). We don't sell your data or add you to marketing lists. To withdraw consent or request deletion, email hello@theratravel.co.uk. Clinics process your data under their own privacy notices once you're introduced.</p>
+    </details>
+  </section>
+
+  <section class="step" data-step="7">
+    <div class="result">
+      <div class="badge">✓ Request received — clinics will be in touch within 2 working days</div>
+      <p class="sub" style="margin-bottom:4px">Indicative price abroad for <b id="r-treat"></b>:</p>
+      <div class="price" id="r-price"></div>
+      <div class="compare" id="r-compare"></div>
+      <p class="price-note">This is an indicative range based on typical 2026 prices<span id="r-dest"></span>, not a quote. Your personalised quotes from vetted clinics — based on your actual case — are on their way to your inbox.</p>
+      <p class="price-note">Meanwhile, read our <a href="https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad">honest guide to having dental work done abroad safely</a>.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prefer to share full medical details now? <a href="https://www.theratravel.co.uk/medical-procedure-quote">Use the detailed form</a>
+</footer>
+
+<script>
+const SITE_ID = "66fd0ce3ac80a5a578e8bb61";
+const FORM_NAME = "wf-form-Medical-procedure-form";
+const PAGE_ID = "691fda0fcb46d0430f9f719d";
+const ELEMENT_ID = "03fc190c-fc36-e4d7-de13-5f77fdcbcc69";
+
+// Indicative ranges, GBP, typical 2026 prices (from the cluster research pack).
+// [min, max] per destination; "abroad" = blended across destinations.
+const PRICES = {
+  "Single dental implant": {Turkey:[400,1100], Hungary:[800,1150], Poland:[400,1300], "Croatia or Spain":[570,1750], abroad:[400,1300], uk:[1800,3500]},
+  "Multiple dental implants": {Turkey:[1200,4400], Hungary:[2400,4600], Poland:[1200,5200], "Croatia or Spain":[1700,7000], abroad:[1200,5200], uk:[5400,14000]},
+  "All-on-4": {Turkey:[3000,6000], Hungary:[3900,6500], Poland:[4500,7000], "Croatia or Spain":[5400,9000], abroad:[3000,7000], uk:[9000,15000]},
+  "Full mouth restoration": {Turkey:[6000,12000], Hungary:[7800,13000], Poland:[10000,14000], "Croatia or Spain":[10000,16000], abroad:[6000,14000], uk:[25000,35000]},
+  "Veneers / smile makeover": {Turkey:[1600,4000], Hungary:[2400,5000], Poland:[2400,5000], "Croatia or Spain":[1800,6000], abroad:[1600,5000], uk:[6400,11300]},
+  "Crowns or bridges": {Turkey:[150,450], Hungary:[200,500], Poland:[200,500], "Croatia or Spain":[220,600], abroad:[150,600], uk:[500,1200]},
+  "Not sure yet": {abroad:[400,7000], uk:[1800,15000]},
+};
+
+const answers = {};
+let step = 1;
+const TOTAL = 7;
+
+function show(n){
+  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+  document.querySelector(`[data-step="${n}"]`).classList.add('active');
+  document.getElementById('bar').style.width = (n/TOTAL*100)+'%';
+  step = n;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function back(){ if(step>1) show(step-1); }
+
+document.querySelectorAll('.opts').forEach(group=>{
+  group.querySelectorAll('.opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
+      btn.classList.add('sel');
+      answers[group.dataset.key] = btn.dataset.val;
+      setTimeout(()=>show(step+1), 180);
+    });
+  });
+});
+
+function fmt(n){ return '£'+n.toLocaleString('en-GB'); }
+
+function estimate(){
+  const p = PRICES[answers.treatment] || PRICES["Not sure yet"];
+  const dest = answers.destination;
+  const range = (dest && p[dest]) ? p[dest] : p.abroad;
+  return {range, uk:p.uk, destLabel:(dest && p[dest]) ? ' in '+dest : ' abroad'};
+}
+
+async function submitLead(){
+  const f = id=>document.getElementById(id);
+  const err = f('err');
+  err.style.display='none';
+  const fname=f('fname').value.trim(), lname=f('lname').value.trim(),
+        email=f('email').value.trim(), phone=f('phone').value.trim();
+  if(!fname||!lname){ err.textContent='Please enter your name.'; err.style.display='block'; return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent='Please enter a valid email address.'; err.style.display='block'; return; }
+  if(phone.replace(/\D/g,'').length<10){ err.textContent='Please enter a valid phone number.'; err.style.display='block'; return; }
+  if(!f('consent').checked){ err.textContent='Please tick the consent box so clinics can contact you.'; err.style.display='block'; return; }
+
+  const est = estimate();
+  const params = new URLSearchParams(location.search);
+  const body = new URLSearchParams({
+    name: FORM_NAME, pageId: PAGE_ID, elementId: ELEMENT_ID,
+    source: location.href,
+    "fields[First Name]": fname,
+    "fields[Last Name]": lname,
+    "fields[Email]": email,
+    "fields[Phone]": phone,
+    "fields[Procedure Interest]": "Dental Implants",
+    "fields[Treatment detail]": answers.treatment||"",
+    "fields[Current status]": answers.status||"",
+    "fields[Destination preference]": answers.destination||"",
+    "fields[Timeline]": answers.timeline||"",
+    "fields[Budget band]": answers.budget||"",
+    "fields[Assessment summary]": `${answers.treatment} | ${answers.destination} | est ${fmt(est.range[0])}–${fmt(est.range[1])}`,
+    "fields[Consent]": "true",
+    "fields[Lead source]": "thera-assess-dental",
+    "fields[UTM]": ["utm_source","utm_medium","utm_campaign"].map(k=>params.get(k)||"").join("/"),
+  });
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…';
+  try{
+    const r = await fetch(`https://webflow.com/api/v1/form/${SITE_ID}`, {method:'POST', body});
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    showResult(est);
+  }catch(e){
+    err.textContent = "Something went wrong sending your request. Please try again, or email hello@theratravel.co.uk and we'll pick it up personally.";
+    err.style.display='block';
+    btn.disabled=false; btn.textContent='See my estimate →';
+  }
+}
+
+function showResult(est){
+  document.getElementById('r-treat').textContent = (answers.treatment||'').toLowerCase();
+  document.getElementById('r-price').textContent = fmt(est.range[0])+' – '+fmt(est.range[1]);
+  document.getElementById('r-dest').textContent = est.destLabel;
+  const save = [Math.max(0,est.uk[0]-est.range[1]), Math.max(0,est.uk[1]-est.range[0])];
+  document.getElementById('r-compare').innerHTML =
+    `<div><span>Typical UK private price</span><span>${fmt(est.uk[0])} – ${fmt(est.uk[1])}</span></div>`+
+    `<div><span>Typical price abroad</span><span>${fmt(est.range[0])} – ${fmt(est.range[1])}</span></div>`+
+    `<div><span>Potential saving</span><b>${fmt(save[0])} – ${fmt(save[1])}</b></div>`;
+  show(7);
+}
+</script>
+</body>
+</html>
