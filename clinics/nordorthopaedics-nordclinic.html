@@ -50,10 +50,56 @@ th{background:#f4f6ff;font-size:12px;text-transform:uppercase;letter-spacing:.03
 td{padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)}
 tr.uk td{background:#fafbfc;color:var(--grey)}
 .save{color:var(--green);font-weight:800;white-space:nowrap}
-.surgeons{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-.surg{border:1.5px solid var(--line);border-radius:14px;padding:16px}
-.surg h3{font-size:15px;font-weight:800}.surg .t{font-size:13px;color:var(--blue);font-weight:700;margin:2px 0}
-.surg .m{font-size:13px;color:#3a4256;margin-top:6px}.surg .cred{font-size:12px;color:var(--grey);margin-top:6px}
+.surgeons{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.surg{border:1.5px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}
+.surg .shead{display:flex;gap:13px;align-items:flex-start}
+.surg .savatar{width:52px;height:52px;flex:0 0 52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.surg h3{font-size:16px;font-weight:800;line-height:1.2}.surg .t{font-size:12.5px;color:var(--blue);font-weight:700;margin-top:3px;line-height:1.35}
+.surg .m{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.surg .chip{font-size:11.5px;font-weight:700;background:#f2f4f7;color:#3a4256;border-radius:99px;padding:4px 10px}
+.surg .chip.vol{background:var(--green-bg);color:var(--green)}
+.surg .cred{font-size:12.5px;color:var(--grey);line-height:1.55;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.surg .cred b{color:var(--navy)}
+.surg .ssrc{font-size:11.5px;margin-top:10px}.surg .ssrc a{color:var(--blue);text-decoration:none;font-weight:700}
+/* Hero media */
+.heromedia{position:relative;border-radius:18px;overflow:hidden;margin:6px 0 4px;aspect-ratio:16/6;min-height:150px;background:linear-gradient(120deg,var(--navy),var(--blue))}
+.heromedia img.bg{width:100%;height:100%;object-fit:cover;display:block}
+.heromedia .grad{position:absolute;inset:0;background:linear-gradient(120deg,#1f2b5bcc 0%,#1f2b5b33 60%,#0000 100%)}
+.heromedia .imgcred{position:absolute;bottom:8px;right:11px;font-size:10.5px;color:#fff;background:#0006;border-radius:6px;padding:2px 8px;backdrop-filter:blur(2px)}
+.hero-id{display:flex;align-items:flex-end;gap:15px;margin-top:-40px;position:relative;padding:0 4px}
+.hero-id h1{color:var(--navy)}
+.hero-id .clogo{width:78px;height:78px;flex:0 0 78px;border-radius:16px;border:3px solid #fff;background:#fff;box-shadow:0 4px 16px #1f2b5b26;object-fit:cover;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;overflow:hidden}
+.hero-id .clogo.ph{background:linear-gradient(135deg,var(--blue),var(--navy))}
+.hero-id .clogo img{width:100%;height:100%;object-fit:cover}
+.hero-id .htext{padding-bottom:2px}
+/* Photo gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gal .g{position:relative;padding-top:72%;border-radius:12px;overflow:hidden;cursor:pointer;background:#f2f4f7}
+.gal .g:first-child{grid-column:span 2;grid-row:span 2;padding-top:calc(72% + 8px)}
+.gal .g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.25s}
+.gal .g:hover img{transform:scale(1.05)}
+.gal .more{position:absolute;inset:0;background:#1f2b5bc4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800}
+.galnote{font-size:11.5px;color:var(--grey);margin-top:10px}
+.lb{position:fixed;inset:0;background:#0b1020f2;z-index:90;display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:82vh;border-radius:10px}
+.lb .x{position:absolute;top:16px;right:22px;font-size:32px;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:30px;color:#fff;cursor:pointer;background:#ffffff1f;border:none;border-radius:50%;width:52px;height:52px}
+.lb .prev{left:18px}.lb .next{right:18px}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#c8cee0;font-size:12.5px}
+@media(max-width:640px){.gal{grid-template-columns:repeat(2,1fr)}.gal .g:first-child{grid-column:span 2;grid-row:auto;padding-top:60%}.lb .nav{width:42px;height:42px;font-size:24px}}
+/* Accreditation section */
+.accreds{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.acard{border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;display:flex;gap:12px}
+.acard.facility{border-color:#a6f4c5;background:#f6fef9}
+.acard .aico{font-size:22px;line-height:1;flex:0 0 auto;margin-top:1px}
+.acard h3{font-size:14.5px;font-weight:800;line-height:1.25}
+.acard .atier{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--grey);font-weight:700;margin-top:2px}
+.acard .awhat{font-size:12.5px;color:#3a4256;line-height:1.55;margin-top:7px}
+.acard .araw{font-size:11.5px;color:var(--grey);margin-top:7px;font-style:italic}
+.acard .averify{font-size:11.5px;font-weight:700;margin-top:8px}.acard .averify a{color:var(--blue);text-decoration:none}
+.acard.plain{background:#fcfcfd}
+.accnote{font-size:12px;color:var(--grey);margin-top:12px}
 .revhead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
 .revscore{font-size:44px;font-weight:800;line-height:1}
 .revsnips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
@@ -81,12 +127,12 @@ footer.site{border-top:1px solid var(--line);padding:24px 0;font-size:12.5px;col
 footer.site a{color:var(--blue)}
 @media(max-width:560px){.hero h1{font-size:24px}.gatebar .wrap{flex-direction:column;align-items:stretch}.gatebar .cta{text-align:center}}
 </style></head><body>
-<header class="site"><div class="wrap"><a class="wordmark" href="index.html">Thera<span>Compare</span></a><nav class="navlinks"><a href="browse.html">Browse clinics</a><a href="../compare.html">Compare prices</a><a href="https://www.theratravel.co.uk">Thera Travel</a></nav></div></header>
+<header class="site"><div class="wrap"><a class="wordmark" href="../index.html">Thera<span>Compare</span></a><nav class="navlinks"><a href="browse.html">Browse clinics</a><a href="../compare.html">Compare prices</a><a href="https://www.theratravel.co.uk">Thera Travel</a></nav></div></header>
 <div class="wrap">
-<div class="crumb"><a href="index.html">Home</a> › <a href="browse.html">Clinics</a> › <a href="browse.html?category=Orthopaedics">Orthopaedics</a> › Nordorthopaedics (Nordclinic)</div>
+<div class="crumb"><a href="../index.html">Home</a> › <a href="browse.html">Clinics</a> › <a href="browse.html?category=Orthopaedics">Orthopaedics</a> › Nordorthopaedics (Nordclinic)</div>
+<div class="heromedia"><div class="grad"></div></div>
+<div class="hero-id"><div class="clogo"><img src="img/nordorthopaedics-nordclinic-logo.jpg" alt="Nordorthopaedics (Nordclinic) logo" referrerpolicy="no-referrer" onerror="this.parentNode.classList.add('ph');this.parentNode.textContent='NN'"></div><div class="htext"><h1>Nordorthopaedics (Nordclinic)</h1><div class="loc">🇱🇹 Kaunas, Lithuania</div></div></div>
 <div class="hero">
-<h1>Nordorthopaedics (Nordclinic)</h1>
-<div class="loc">🇱🇹 Kaunas, Lithuania</div>
 <div class="rating"><span class="stars">★★★★★</span> <b>5</b> <span class="cnt">(327 Google reviews)</span></div>
 <div class="badges">
 <span class="badge listed">Independently listed</span>
@@ -97,6 +143,15 @@ footer.site a{color:var(--blue)}
 </div>
 <div class="listed-note"><b>Independently listed.</b> We compiled this profile from our own research — this clinic is not yet a Thera partner. We can still request quotes on your behalf.</div>
 <section class="blk"><h2>About Nordorthopaedics (Nordclinic)</h2><p class="about">Dedicated orthopaedic surgery clinic (part of the Nordclinic group) at Birzelio 23-iosios str. 4, Kaunas; roughly 80% of patients come from the UK, Ireland, Norway, Sweden, the US and Canada, with around 40 UK patients a month. Lead joint-replacement surgeon Prof. Sarunas Tarasevicius has performed 7,000+ joint replacements; packages include transfers, 24/7 assistance, English documents and help claiming EU cross-border (S2/EU directive) refunds. Uses Zimmer Biomet and Smith &amp; Nephew implants. No accreditation or founding-year details found on the site.</p></section>
+<section class="blk"><h2>Inside the clinic</h2><div class="gal">
+<div class="g" onclick="lbOpen(0)"><img src="img/gallery/nordorthopaedics-nordclinic-1.jpg" alt="Nordorthopaedics (Nordclinic) — clinic photo 1" loading="lazy"></div>
+<div class="g" onclick="lbOpen(1)"><img src="img/gallery/nordorthopaedics-nordclinic-2.jpg" alt="Nordorthopaedics (Nordclinic) — clinic photo 2" loading="lazy"></div>
+<div class="g" onclick="lbOpen(2)"><img src="img/gallery/nordorthopaedics-nordclinic-3.jpg" alt="Nordorthopaedics (Nordclinic) — clinic photo 3" loading="lazy"></div>
+<div class="g" onclick="lbOpen(3)"><img src="img/gallery/nordorthopaedics-nordclinic-4.jpg" alt="Nordorthopaedics (Nordclinic) — clinic photo 4" loading="lazy"></div>
+<div class="g" onclick="lbOpen(4)"><img src="img/gallery/nordorthopaedics-nordclinic-5.jpg" alt="Nordorthopaedics (Nordclinic) — clinic photo 5" loading="lazy"><div class="more">+5 more</div></div>
+</div>
+<p class="galnote">Photos of Nordorthopaedics Clinic via Google · Photos by Denis Bakunovich, Nordorthopaedics Clinic, Patricia John. Published by visitors and the clinic on its Google Business listing.</p>
+</section>
 <section class="blk"><h2>Published & researched prices</h2><div class="tablewrap"><table>
 <tr><th>Procedure</th><th>Typical price</th></tr>
 <tr><td>hip replacement</td><td>approx. €8,200 / £6,840 all-inclusive package (surgery €4,560 / £3,800 + implant from €2,800 / £2,340)</td></tr>
@@ -105,7 +160,37 @@ footer.site a{color:var(--blue)}
 <tr><td>knee arthroscopy</td><td>from €2,250 / £1,875</td></tr>
 <tr><td>high tibial osteotomy</td><td>from €4,660 / £4,130</td></tr>
 <tr><td>joint injection</td><td>from €40 / £33</td></tr>
-</table></div><p style="font-size:12.5px;color:var(--grey);margin-top:10px">Indicative research-sourced prices — your exact quote depends on your case. <a href="../index.html?path=ortho&amp;clinic=nordorthopaedics-nordclinic&amp;utm_source=profile&amp;utm_medium=engine&amp;utm_campaign=nordorthopaedics-nordclinic" style="color:var(--blue);font-weight:700;text-decoration:none">Request a personal quote →</a></p></section>
+</table></div><p style="font-size:12.5px;color:var(--grey);margin-top:10px">Indicative research-sourced prices — your exact quote depends on your case. <a href="../quote.html?path=ortho&amp;clinic=nordorthopaedics-nordclinic&amp;utm_source=profile&amp;utm_medium=engine&amp;utm_campaign=nordorthopaedics-nordclinic" style="color:var(--blue);font-weight:700;text-decoration:none">Request a personal quote →</a></p></section>
+<section class="blk"><h2>Surgeons &amp; specialists</h2><div class="surgeons">
+<div class="surg"><div class="shead"><div class="savatar">ST</div><div><h3>Prof. Sarunas Tarasevicius</h3>
+<div class="t">Orthopaedic Surgeon (Professor)</div>
+</div></div>
+<div class="m"><span class="chip">Hip and knee joint replacement surgery</span><span class="chip">20 yrs experience</span><span class="chip vol">Over 7,000 joint replacement surgeries</span></div>
+<div class="cred"><b>Training &amp; credentials:</b> Kaunas University of Medicine; PhD (Kaunas Univ. of Medicine &amp; Lund University, Sweden); President of Lithuanian Society of Orthopaedics and Traumatology; member of EFORT and SICOT (Intl. Society of Orthopaedic Surgery and Traumatology)</div>
+<div class="ssrc"><a href="https://www.nordorthopaedics.com/en/hip-knee-surgeon-abroad-lithuania" target="_blank" rel="noopener">Source →</a></div>
+</div>
+<div class="surg"><div class="shead"><div class="savatar">VK</div><div><h3>Vytautas Kimtys</h3>
+<div class="t">Orthopaedic Surgeon</div>
+</div></div>
+<div class="m"><span class="chip">Ankle and foot surgery, knee arthroscopy, meniscus repair, ACL reconstruction</span><span class="chip">25 yrs experience</span><span class="chip vol">500 ankle replacements and 1,000 ankle fusion surgeries performed</span></div>
+<div class="cred"><b>Training &amp; credentials:</b> Co-author of scientific articles in medical journals</div>
+<div class="ssrc"><a href="https://www.nordorthopaedics.com/en/orthopaedic-team" target="_blank" rel="noopener">Source →</a></div>
+</div>
+<div class="surg"><div class="shead"><div class="savatar">RJ</div><div><h3>Robertinas Juosponis</h3>
+<div class="t">Orthopaedic Surgeon</div>
+</div></div>
+<div class="m"><span class="chip">Hip, knee and shoulder joint replacement and bone osteosynthesis</span><span class="chip">15 yrs experience</span><span class="chip vol">Performs 300 surgeries per year</span></div>
+<div class="ssrc"><a href="https://www.nordorthopaedics.com/en/orthopaedic-team" target="_blank" rel="noopener">Source →</a></div>
+</div>
+<div class="surg"><div class="shead"><div class="savatar">VL</div><div><h3>Valdemar Loiba</h3>
+<div class="t">Orthopaedic Surgeon</div>
+</div></div>
+<div class="m"><span class="chip">Hip, shoulder and knee arthroscopies and minimally invasive orthopaedics</span><span class="chip">20 yrs experience</span></div>
+<div class="cred"><b>Training &amp; credentials:</b> Co-author of scientific articles; author of international oral presentations</div>
+<div class="ssrc"><a href="https://www.nordorthopaedics.com/en/orthopaedic-team" target="_blank" rel="noopener">Source →</a></div>
+</div>
+</div>
+<p class="accnote">Surgeon details are compiled from clinic and public professional sources. Case volumes are clinic-reported unless otherwise noted.</p></section>
 <section class="blk"><h2>Patient reviews</h2>
 <div class="revhead">
 <div class="revscore">5</div><div><div class="stars">★★★★★</div><div style="font-size:13px;color:var(--grey)">327 reviews via Google</div></div>
@@ -120,9 +205,12 @@ footer.site a{color:var(--blue)}
 <section class="blk"><h2>How Thera vets clinics</h2><div class="trust">Every clinic we list is screened for <b>accreditation</b> (JCI, ISO, TEMOS or national licence), <b>verifiable pricing</b>, <b>English-speaking international care</b>, and a <b>Google rating with real review volume</b>. We introduce you to matched clinics — you are never cold-contacted without consent. <a href="https://www.theratravel.co.uk" style="color:var(--blue);font-weight:700">Read our vetting standards →</a></div></section>
 <section class="blk"><h2>Not ready to inquire?</h2><p class="about">We can email you this clinic's full details and price guide — no obligation.</p><form class="softcap" onsubmit="softCap(event,'nordorthopaedics-nordclinic')"><input type="email" placeholder="you@email.com" required aria-label="Email"><button type="submit">Email me this clinic</button></form><p id="softmsg" style="font-size:13px;color:var(--green);margin-top:8px;display:none">Thanks — we'll be in touch.</p></section>
 </div>
-<div class="gatebar"><div class="wrap"><div class="msg">Request free quotes from Nordorthopaedics (Nordclinic) — takes 2 minutes, no obligation.</div><a class="cta" href="../index.html?path=ortho&amp;clinic=nordorthopaedics-nordclinic&amp;utm_source=profile&amp;utm_medium=engine&amp;utm_campaign=nordorthopaedics-nordclinic">Request quotes →</a></div></div>
+<div class="gatebar"><div class="wrap"><div class="msg">Request free quotes from Nordorthopaedics (Nordclinic) — takes 2 minutes, no obligation.</div><a class="cta" href="../quote.html?path=ortho&amp;clinic=nordorthopaedics-nordclinic&amp;utm_source=profile&amp;utm_medium=engine&amp;utm_campaign=nordorthopaedics-nordclinic">Request quotes →</a></div></div>
 <div class="partner-hook">Work at this clinic? <a href="https://www.theratravel.co.uk">Partner with Thera →</a></div>
 <footer class="site"><div class="wrap">A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prices are indicative research-sourced ranges, not quotes · Ratings shown are public Google data, refreshed monthly · <a href="../privacy.html">Privacy</a> · <a href="browse.html">Browse all clinics →</a></div></footer>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalBusiness", "name": "Nordorthopaedics (Nordclinic)", "address": {"@type": "PostalAddress", "addressLocality": "Kaunas", "addressCountry": "Lithuania"}, "medicalSpecialty": "Orthopaedics"}</script>
-<script>function softCap(e,slug){e.preventDefault();var m=document.getElementById("softmsg");m.style.display="block";e.target.reset();/* soft-lead capture: wire to Webflow form bucket tagged soft-lead */}</script>
+<div class="lb" id="lb" onclick="if(event.target.id=='lb')lbClose()"><button class="x" onclick="lbClose()" aria-label="Close">×</button><button class="nav prev" onclick="lbStep(-1)" aria-label="Previous">‹</button><img id="lbimg" src="" alt=""><button class="nav next" onclick="lbStep(1)" aria-label="Next">›</button><div class="cap" id="lbcap"></div></div>
+<script>function softCap(e,slug){e.preventDefault();var m=document.getElementById("softmsg");m.style.display="block";e.target.reset();/* soft-lead capture: wire to Webflow form bucket tagged soft-lead */}
+var GAL=[{"file": "img/gallery/nordorthopaedics-nordclinic-1.jpg", "attribution": "Nordorthopaedics Clinic"}, {"file": "img/gallery/nordorthopaedics-nordclinic-2.jpg", "attribution": "Nordorthopaedics Clinic"}, {"file": "img/gallery/nordorthopaedics-nordclinic-3.jpg", "attribution": "Nordorthopaedics Clinic"}, {"file": "img/gallery/nordorthopaedics-nordclinic-4.jpg", "attribution": "Nordorthopaedics Clinic"}, {"file": "img/gallery/nordorthopaedics-nordclinic-5.jpg", "attribution": "Thomas Haslam"}, {"file": "img/gallery/nordorthopaedics-nordclinic-6.jpg", "attribution": "Denis Bakunovich"}, {"file": "img/gallery/nordorthopaedics-nordclinic-7.jpg", "attribution": "Patricia John"}, {"file": "img/gallery/nordorthopaedics-nordclinic-8.jpg", "attribution": "Wendy Claridge"}, {"file": "img/gallery/nordorthopaedics-nordclinic-9.jpg", "attribution": "Viktor Csepely"}, {"file": "img/gallery/nordorthopaedics-nordclinic-10.jpg", "attribution": "Stephen Pitcher"}];var lbi=0;function lbOpen(i){lbi=i;lbShow();document.getElementById("lb").classList.add("on");}function lbClose(){document.getElementById("lb").classList.remove("on");}function lbStep(d){lbi=(lbi+d+GAL.length)%GAL.length;lbShow();}function lbShow(){var g=GAL[lbi];document.getElementById("lbimg").src=g.file;document.getElementById("lbcap").textContent=(lbi+1)+" / "+GAL.length+(g.attribution?" · Photo by "+g.attribution+" via Google":" · via Google");}document.addEventListener("keydown",function(e){if(!document.getElementById("lb").classList.contains("on"))return;if(e.key=="Escape")lbClose();if(e.key=="ArrowRight")lbStep(1);if(e.key=="ArrowLeft")lbStep(-1);});
+</script>
 </body></html>

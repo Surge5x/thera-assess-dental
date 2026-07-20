@@ -1,496 +1,256 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thera Assess — Compare Treatment Abroad & Get Free Quotes</title>
-<meta name="description" content="Compare real prices for dental work and orthopaedic surgery abroad. Take the 60-second assessment, see your personalised savings, and get free quotes from vetted clinics.">
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thera Compare — find & compare trusted clinics abroad</title>
+<meta name="description" content="Connect with trusted, vetted medical and dental clinics abroad. Search your treatment, compare verified clinics and prices across the world, and request free quotes.">
 <meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#1f2b5b; --blue:#587dff; --light:#67dcff; --tint:#67dcff14;
-    --green:#027a48; --green-bg:#ecfdf3; --star:#00b67a; --grey:#667085; --line:#e4e7ec;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(180deg,var(--tint),#fff 420px);color:var(--navy);min-height:100vh;display:flex;flex-direction:column}
-  header{padding:20px 24px;display:flex;align-items:center;justify-content:space-between;max-width:720px;width:100%;margin:0 auto}
-  .wordmark{font-weight:800;font-size:20px;color:var(--navy);text-decoration:none}
-  .wordmark span{color:var(--blue)}
-  .trust{font-size:12px;color:var(--grey)}
-  main{flex:1;width:100%;max-width:720px;margin:0 auto;padding:8px 24px 48px}
-  .progress{height:6px;background:var(--line);border-radius:3px;margin:4px 0 28px;overflow:hidden;display:none}
-  .progress.on{display:block}
-  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--light));border-radius:3px;transition:width .3s;width:12%}
-  .step{display:none;animation:fade .25s ease}
-  .step.active{display:block}
-  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-  h1{font-size:26px;font-weight:800;line-height:1.25;margin-bottom:8px}
-  .sub{color:var(--grey);font-size:15px;margin-bottom:24px;line-height:1.5}
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"><style>
+:root{--navy:#1f2b5b;--blue:#587dff;--light:#67dcff;--tint:#67dcff14;--green:#027a48;
+--green-bg:#ecfdf3;--amber:#b54708;--amber-bg:#fffaeb;--grey:#667085;--line:#e4e7ec;--star:#f5a623}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:var(--navy);line-height:1.5}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.site{border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:50}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.wordmark{font-weight:800;font-size:19px;text-decoration:none}.wordmark span{color:var(--blue)}
+.navlinks a{font-size:14px;font-weight:600;color:var(--grey);text-decoration:none;margin-left:18px}
+.navlinks a:hover{color:var(--navy)}
+.crumb{font-size:13px;color:var(--grey);padding:16px 0 0}.crumb a{color:var(--blue);text-decoration:none}
+.hero{padding:16px 0 8px}
+.hero h1{font-size:30px;font-weight:800;line-height:1.2}
+.hero .loc{font-size:16px;color:var(--grey);margin-top:4px}
+.rating{display:flex;align-items:center;gap:8px;margin-top:12px;flex-wrap:wrap}
+.stars{color:var(--star);font-size:17px;letter-spacing:1px}
+.rating b{font-size:17px}.rating .cnt{color:var(--grey);font-size:14px}
+.badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+.badge{background:var(--green-bg);color:var(--green);font-size:12px;font-weight:700;border-radius:99px;padding:4px 11px}
+.badge.plain{background:#f2f4f7;color:var(--grey)}
+.badge.partner{background:#eef2ff;color:var(--blue)}
+.badge.listed{background:var(--amber-bg);color:var(--amber)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:22px 0}
+.fact{background:#fff;padding:13px 16px}.fact .k{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--grey)}
+.fact .v{font-size:15px;font-weight:700;margin-top:3px}
+section.blk{padding:26px 0;border-top:1px solid var(--line)}
+section.blk h2{font-size:21px;font-weight:800;margin-bottom:14px}
+.about{font-size:15.5px;color:#3a4256;line-height:1.65}
+.offers{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.offer{border:1.5px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.offer.feat{border-color:var(--blue);box-shadow:0 0 0 1px var(--blue)}
+.offer .ftag{position:absolute;top:-9px;left:14px;background:var(--blue);color:#fff;font-size:10px;font-weight:800;letter-spacing:.05em;border-radius:5px;padding:2px 8px}
+.offer h3{font-size:15px;font-weight:800}.offer .price{font-size:22px;font-weight:800;color:var(--navy);margin:6px 0}
+.offer .price span{font-size:13px;font-weight:600;color:var(--grey)}
+.offer ul{list-style:none;font-size:13px;color:#3a4256;margin-top:8px}
+.offer li{padding-left:18px;position:relative;margin-bottom:3px}
+.offer li:before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:800}
+.offer .src{font-size:11px;color:var(--grey);margin-top:8px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:420px}
+th{background:#f4f6ff;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--grey);padding:11px 14px;text-align:left}
+td{padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)}
+tr.uk td{background:#fafbfc;color:var(--grey)}
+.save{color:var(--green);font-weight:800;white-space:nowrap}
+.surgeons{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.surg{border:1.5px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column}
+.surg .shead{display:flex;gap:13px;align-items:flex-start}
+.surg .savatar{width:52px;height:52px;flex:0 0 52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--navy));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800}
+.surg h3{font-size:16px;font-weight:800;line-height:1.2}.surg .t{font-size:12.5px;color:var(--blue);font-weight:700;margin-top:3px;line-height:1.35}
+.surg .m{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.surg .chip{font-size:11.5px;font-weight:700;background:#f2f4f7;color:#3a4256;border-radius:99px;padding:4px 10px}
+.surg .chip.vol{background:var(--green-bg);color:var(--green)}
+.surg .cred{font-size:12.5px;color:var(--grey);line-height:1.55;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.surg .cred b{color:var(--navy)}
+.surg .ssrc{font-size:11.5px;margin-top:10px}.surg .ssrc a{color:var(--blue);text-decoration:none;font-weight:700}
+/* Hero media */
+.heromedia{position:relative;border-radius:18px;overflow:hidden;margin:6px 0 4px;aspect-ratio:16/6;min-height:150px;background:linear-gradient(120deg,var(--navy),var(--blue))}
+.heromedia img.bg{width:100%;height:100%;object-fit:cover;display:block}
+.heromedia .grad{position:absolute;inset:0;background:linear-gradient(120deg,#1f2b5bcc 0%,#1f2b5b33 60%,#0000 100%)}
+.heromedia .imgcred{position:absolute;bottom:8px;right:11px;font-size:10.5px;color:#fff;background:#0006;border-radius:6px;padding:2px 8px;backdrop-filter:blur(2px)}
+.hero-id{display:flex;align-items:flex-end;gap:15px;margin-top:-40px;position:relative;padding:0 4px}
+.hero-id h1{color:var(--navy)}
+.hero-id .clogo{width:78px;height:78px;flex:0 0 78px;border-radius:16px;border:3px solid #fff;background:#fff;box-shadow:0 4px 16px #1f2b5b26;object-fit:cover;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;color:#fff;overflow:hidden}
+.hero-id .clogo.ph{background:linear-gradient(135deg,var(--blue),var(--navy))}
+.hero-id .clogo img{width:100%;height:100%;object-fit:cover}
+.hero-id .htext{padding-bottom:2px}
+/* Photo gallery */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gal .g{position:relative;padding-top:72%;border-radius:12px;overflow:hidden;cursor:pointer;background:#f2f4f7}
+.gal .g:first-child{grid-column:span 2;grid-row:span 2;padding-top:calc(72% + 8px)}
+.gal .g img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:.25s}
+.gal .g:hover img{transform:scale(1.05)}
+.gal .more{position:absolute;inset:0;background:#1f2b5bc4;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:800}
+.galnote{font-size:11.5px;color:var(--grey);margin-top:10px}
+.lb{position:fixed;inset:0;background:#0b1020f2;z-index:90;display:none;align-items:center;justify-content:center}
+.lb.on{display:flex}
+.lb img{max-width:92vw;max-height:82vh;border-radius:10px}
+.lb .x{position:absolute;top:16px;right:22px;font-size:32px;color:#fff;cursor:pointer;background:none;border:none;line-height:1}
+.lb .nav{position:absolute;top:50%;transform:translateY(-50%);font-size:30px;color:#fff;cursor:pointer;background:#ffffff1f;border:none;border-radius:50%;width:52px;height:52px}
+.lb .prev{left:18px}.lb .next{right:18px}
+.lb .cap{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#c8cee0;font-size:12.5px}
+@media(max-width:640px){.gal{grid-template-columns:repeat(2,1fr)}.gal .g:first-child{grid-column:span 2;grid-row:auto;padding-top:60%}.lb .nav{width:42px;height:42px;font-size:24px}}
+/* Accreditation section */
+.accreds{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.acard{border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;display:flex;gap:12px}
+.acard.facility{border-color:#a6f4c5;background:#f6fef9}
+.acard .aico{font-size:22px;line-height:1;flex:0 0 auto;margin-top:1px}
+.acard h3{font-size:14.5px;font-weight:800;line-height:1.25}
+.acard .atier{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--grey);font-weight:700;margin-top:2px}
+.acard .awhat{font-size:12.5px;color:#3a4256;line-height:1.55;margin-top:7px}
+.acard .araw{font-size:11.5px;color:var(--grey);margin-top:7px;font-style:italic}
+.acard .averify{font-size:11.5px;font-weight:700;margin-top:8px}.acard .averify a{color:var(--blue);text-decoration:none}
+.acard.plain{background:#fcfcfd}
+.accnote{font-size:12px;color:var(--grey);margin-top:12px}
+.revhead{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:16px}
+.revscore{font-size:44px;font-weight:800;line-height:1}
+.revsnips{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.snip{border:1.5px solid var(--line);border-radius:14px;padding:16px;background:#fcfcfd}
+.snip .s{color:var(--star);font-size:14px}.snip p{font-size:14px;color:#3a4256;margin:8px 0;font-style:italic}
+.snip .a{font-size:12px;color:var(--grey);font-weight:700}
+.topics{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}
+.topic{background:#f2f4f7;border-radius:99px;padding:5px 11px;font-size:12.5px;color:#3a4256}
+.topic b{color:var(--navy)}
+.trust{background:var(--tint);border-radius:14px;padding:18px 20px;font-size:14.5px;color:#3a4256}
+.trust b{color:var(--navy)}
+.listed-note{background:var(--amber-bg);border:1px solid #fedf89;border-radius:12px;padding:14px 16px;font-size:14px;color:#7a4b0a;margin-bottom:16px}
+.faq dt{font-weight:800;font-size:15px;margin-top:14px}.faq dd{font-size:14.5px;color:#3a4256;margin-top:5px}
+.cta{display:inline-block;background:var(--navy);color:#fff;font-size:15px;font-weight:700;border-radius:11px;padding:13px 22px;text-decoration:none;transition:.15s;border:none;cursor:pointer}
+.cta:hover{background:#2a3a78}.cta.ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+.gatebar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:12px 0;margin-top:10px;z-index:40}
+.gatebar .wrap{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.gatebar .msg{font-size:13.5px;color:var(--grey)}
+.softcap{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.softcap input{flex:1;min-width:180px;border:1.5px solid var(--line);border-radius:10px;padding:11px 13px;font-family:inherit;font-size:14px}
+.softcap button{background:#fff;border:1.5px solid var(--line);border-radius:10px;padding:11px 16px;font-weight:700;font-size:14px;cursor:pointer}
+.partner-hook{font-size:13px;color:var(--grey);text-align:center;padding:22px 0}
+.partner-hook a{color:var(--blue);text-decoration:none;font-weight:700}
+footer.site{border-top:1px solid var(--line);padding:24px 0;font-size:12.5px;color:var(--grey);text-align:center;margin-top:20px}
+footer.site a{color:var(--blue)}
+@media(max-width:560px){.hero h1{font-size:24px}.gatebar .wrap{flex-direction:column;align-items:stretch}.gatebar .cta{text-align:center}}
 
-  /* ── Landing ── */
-  .hero{text-align:center;padding-top:18px}
-  .hero h1{font-size:34px;line-height:1.2;margin-bottom:14px}
-  .hero h1 em{font-style:normal;color:var(--blue)}
-  .hero .sub{max-width:520px;margin:0 auto 26px;font-size:16.5px}
-  .btn-hero{display:inline-block;background:var(--navy);color:#fff;font-size:18px;font-weight:800;border:none;border-radius:14px;padding:18px 38px;cursor:pointer;font-family:inherit;transition:all .15s;box-shadow:0 8px 24px #1f2b5b2e}
-  .btn-hero:hover{background:#2a3a78;transform:translateY(-1px)}
-  .hero .micro{font-size:12.5px;color:var(--grey);margin-top:10px}
-  .stars-row{display:flex;align-items:center;justify-content:center;gap:10px;margin:26px 0 6px;flex-wrap:wrap}
-  .stars{display:inline-flex;gap:3px}
-  .stars i{width:22px;height:22px;background:var(--star);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-style:normal;font-size:14px}
-  .stars-row b{font-size:14.5px}
-  .stars-row span{font-size:13px;color:var(--grey)}
-  .statgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin:28px 0 8px}
-  .stat{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px 12px;text-align:center}
-  .stat b{display:block;font-size:22px;font-weight:800}
-  .stat span{font-size:12.5px;color:var(--grey);line-height:1.4;display:block;margin-top:3px}
-  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:26px 0;text-align:left}
-  .how div{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px}
-  .how b{display:block;font-size:14.5px;margin-bottom:4px}
-  .how b i{font-style:normal;color:var(--blue);margin-right:6px}
-  .how span{font-size:13px;color:var(--grey);line-height:1.5}
-  .quote{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:18px 20px;margin:8px 0 26px;font-size:14.5px;line-height:1.6;text-align:left}
-  .quote a{color:var(--blue);font-size:13px}
-
-  /* ── Form ── */
-  .opts{display:grid;gap:10px}
-  .opts.cat-hidden{display:none}
-  .opt{border:1.5px solid var(--line);border-radius:12px;padding:15px 18px;font-size:16px;font-weight:600;background:#fff;cursor:pointer;text-align:left;transition:all .15s;color:var(--navy);font-family:inherit;width:100%}
-  .opt small{display:block;font-weight:400;font-size:13px;color:var(--grey);margin-top:2px}
-  .opt:hover{border-color:var(--blue)}
-  .opt.sel{border-color:var(--blue);background:#587dff10;box-shadow:0 0 0 1px var(--blue)}
-  .nav{display:flex;gap:12px;margin-top:24px}
-  .btn{font-family:inherit;font-size:16px;font-weight:700;border-radius:12px;padding:14px 26px;cursor:pointer;border:none;transition:all .15s}
-  .btn-primary{background:var(--navy);color:#fff;flex:1}
-  .btn-primary:hover{background:#2a3a78}
-  .btn-primary:disabled{opacity:.4;cursor:not-allowed}
-  .btn-ghost{background:none;border:1.5px solid var(--line);color:var(--grey)}
-  label{display:block;font-size:14px;font-weight:600;margin:14px 0 6px}
-  input[type=text],input[type=email],input[type=tel]{width:100%;font-family:inherit;font-size:16px;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;color:var(--navy)}
-  input:focus{outline:none;border-color:var(--blue)}
-  .consent{display:flex;gap:10px;align-items:flex-start;margin-top:18px;font-size:13px;color:var(--grey);line-height:1.5}
-  .consent input{margin-top:3px;width:16px;height:16px;flex-shrink:0}
-  .error{color:#b42318;font-size:13px;margin-top:10px;display:none}
-
-  /* ── Findings ── */
-  .result{text-align:center;padding-top:12px}
-  .badge{display:inline-block;background:var(--green-bg);color:var(--green);font-size:13px;font-weight:700;border-radius:99px;padding:6px 14px;margin-bottom:18px}
-  .price{font-size:38px;font-weight:800;margin:6px 0}
-  .price-note{color:var(--grey);font-size:14px;max-width:460px;margin:0 auto 20px;line-height:1.55}
-  .compare{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:16px 20px;margin:18px auto;max-width:460px;font-size:14px;text-align:left}
-  .compare div{display:flex;justify-content:space-between;padding:6px 0}
-  .compare div+div{border-top:1px solid var(--line)}
-  .compare b{color:var(--green)}
-  h2{font-size:19px;font-weight:800;margin:34px 0 10px;text-align:left}
-  .tablewrap{overflow-x:auto;background:#fff;border:1.5px solid var(--line);border-radius:14px;text-align:left}
-  table{border-collapse:collapse;width:100%;min-width:520px}
-  th{background:#f4f6ff;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--grey);padding:11px 14px;text-align:left}
-  td{padding:12px 14px;font-size:14.5px;border-top:1px solid var(--line)}
-  tr.uk td{background:#fafbfc;color:var(--grey)}
-  tr.pref td{background:#587dff10}
-  .saving{color:var(--green);font-weight:800;white-space:nowrap}
-  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px;margin-top:14px;text-align:left}
-  .card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:16px}
-  .card h3{font-size:14.5px;font-weight:800;line-height:1.3;margin-bottom:2px}
-  .card .loc{font-size:12.5px;color:var(--grey);margin-bottom:8px}
-  .abadge{display:inline-block;background:var(--green-bg);color:var(--green);font-size:10.5px;font-weight:700;border-radius:99px;padding:2px 8px;margin:0 4px 4px 0}
-  .card .p{font-size:12.5px;color:var(--grey);line-height:1.5;margin-top:6px}
-  details{margin-top:26px;font-size:12px;color:var(--grey);text-align:left}
-  details summary{cursor:pointer;font-weight:600}
-  details p{margin:8px 0;line-height:1.5}
-  footer{padding:18px;text-align:center;font-size:12px;color:var(--grey)}
-  footer a{color:var(--blue)}
-</style>
-</head>
-<body>
-<header>
-  <a class="wordmark" href="https://www.theratravel.co.uk">Thera<span>Assess</span></a>
-  <div class="trust">Free · No obligation · UK-based</div>
-</header>
-<main>
-  <div class="progress" id="progress"><i id="bar"></i></div>
-  <div id="clinicBanner" style="display:none;background:#eef2ff;border:1.5px solid #587dff;border-radius:12px;padding:12px 16px;margin:10px 0;font-size:14.5px;color:#1f2b5b">
-    <b>Requesting quotes from:</b> <span id="clinicNames"></span><br>
-    <span style="font-size:12.5px;color:#667085">We'll introduce you and up to 2 other matched clinics — no obligation, no cold-calling without your consent.</span>
+.hero{text-align:center;padding:54px 0 30px;background:radial-gradient(120% 90% at 50% 0%,var(--tint),#fff 70%)}
+.hero .eyebrow{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
+.hero h1{font-size:44px;font-weight:800;line-height:1.1;margin:12px auto 0;max-width:760px}
+.hero h1 em{color:var(--blue);font-style:normal}
+.hero .sub{font-size:17px;color:var(--grey);margin:14px auto 0;max-width:600px;line-height:1.55}
+.searchbox{max-width:600px;margin:26px auto 0;position:relative}
+.searchbox form{display:flex;gap:8px;background:#fff;border:2px solid var(--navy);border-radius:14px;padding:7px 7px 7px 16px;box-shadow:0 8px 30px #1f2b5b1a}
+.searchbox .ic{align-self:center;font-size:18px;color:var(--grey)}
+.searchbox input{flex:1;border:none;outline:none;font-family:inherit;font-size:16px;color:var(--navy);background:none}
+.searchbox button{background:var(--navy);color:#fff;border:none;border-radius:10px;padding:12px 22px;font-family:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.searchbox button:hover{background:#2a3a78}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);background:#fff;border:1.5px solid var(--line);border-radius:12px;box-shadow:0 12px 30px #1f2b5b1f;overflow:hidden;text-align:left;display:none;z-index:20}
+.sugg.on{display:block}
+.sugg a{display:block;padding:11px 16px;font-size:14.5px;font-weight:600;color:var(--navy);text-decoration:none}
+.sugg a:hover,.sugg a.hi{background:#f4f6ff}.sugg a small{color:var(--grey);font-weight:500}
+.pops{margin:18px auto 0;font-size:13.5px;color:var(--grey)}
+.pops a{display:inline-block;background:#fff;border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;margin:5px 4px 0;font-weight:600;color:var(--navy);text-decoration:none}
+.pops a:hover{border-color:var(--blue)}
+.trustrow{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:30px 0 6px;font-size:14px;color:var(--grey)}
+.trustrow b{color:var(--navy);font-size:19px;display:block}
+.trustrow .it{text-align:center}
+.sec{padding:44px 0}
+.sec h2{font-size:26px;font-weight:800;text-align:center}
+.sec .lead{text-align:center;color:var(--grey);font-size:15px;margin:8px auto 26px;max-width:560px}
+.catcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.catcard{border:1.5px solid var(--line);border-radius:16px;padding:22px;text-decoration:none;color:inherit;transition:.15s;display:flex;flex-direction:column}
+.catcard:hover{border-color:var(--blue);box-shadow:0 8px 26px #587dff14;transform:translateY(-2px)}
+.catcard .em{font-size:30px}
+.catcard h3{font-size:19px;font-weight:800;margin:10px 0 4px}
+.catcard p{font-size:13.5px;color:var(--grey);line-height:1.5;flex:1}
+.catcard .go{margin-top:14px;font-size:13.5px;font-weight:700;color:var(--blue)}
+.countrywrap{display:flex;gap:9px;flex-wrap:wrap;justify-content:center}
+.countrywrap a{border:1.5px solid var(--line);border-radius:99px;padding:9px 16px;font-size:14px;font-weight:600;color:var(--navy);text-decoration:none;transition:.15s}
+.countrywrap a:hover{border-color:var(--blue);background:#f4f6ff}
+.countrywrap a .n{color:var(--grey);font-weight:500;font-size:12.5px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;counter-reset:s}
+.step{text-align:center;padding:10px}
+.step .num{width:42px;height:42px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 12px;font-size:18px}
+.step h3{font-size:17px;font-weight:800}.step p{font-size:14px;color:var(--grey);margin-top:5px;line-height:1.5}
+.ctaband{background:var(--navy);border-radius:20px;padding:40px 28px;text-align:center;color:#fff;margin:20px 0 40px}
+.ctaband h2{color:#fff;font-size:26px;font-weight:800}
+.ctaband p{color:#c7d2fe;font-size:15px;margin:8px auto 20px;max-width:520px}
+.ctaband .cta{background:#fff;color:var(--navy);font-size:15px}
+.secalt{background:#fafbff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+@media(max-width:600px){.hero h1{font-size:32px}.searchbox button{padding:12px 16px}}
+</style></head><body><header class="site"><div class="wrap"><a class="wordmark" href="index.html">Thera<span>Compare</span></a><nav class="navlinks"><a href="clinics/browse.html">Browse clinics</a><a href="compare.html">Compare prices</a><a href="https://www.theratravel.co.uk">Thera Travel</a></nav></div></header>
+<section class="hero"><div class="wrap">
+  <div class="eyebrow">Trusted treatment abroad, made simple</div>
+  <h1>Connect with <em>trusted clinics</em> abroad</h1>
+  <p class="sub">Search your treatment and compare vetted clinics worldwide — verified reviews, real prices, and free quotes. No cost, no obligation.</p>
+  <div class="searchbox">
+    <form onsubmit="return goSearch(event)">
+      <span class="ic">🔍</span>
+      <input id="q" autocomplete="off" placeholder="What treatment are you looking for? e.g. dental implants, hip replacement">
+      <button type="submit">Search</button>
+    </form>
+    <div class="sugg" id="sugg"></div>
   </div>
+  <div class="pops">Popular: <a href="clinics/browse.html?category=Dental&q=Dental implants">Dental implants</a><a href="clinics/browse.html?category=Orthopaedics&q=Hip replacement">Hip replacement</a><a href="clinics/browse.html?category=Hair Transplant&q=Hair transplant">Hair transplant</a><a href="clinics/browse.html?category=Dental&q=Veneers">Veneers</a><a href="clinics/browse.html?category=Plastic Surgery&q=Rhinoplasty">Rhinoplasty</a><a href="clinics/browse.html?category=Orthopaedics&q=Knee replacement">Knee replacement</a><a href="clinics/browse.html?category=Dental&q=All-on-4">All-on-4</a><a href="clinics/browse.html?category=Plastic Surgery&q=Tummy tuck">Tummy tuck</a></div>
+  <div class="trustrow">
+    <div class="it"><b>92</b> vetted clinics</div>
+    <div class="it"><b>12</b> countries</div>
+    <div class="it"><b>Verified</b> Google reviews</div>
+    <div class="it"><b>Free</b> quotes</div>
+  </div>
+</div></section>
 
-  <!-- ── Landing ── -->
-  <section class="step active" data-step="0">
-    <div class="hero">
-      <h1>The same surgery.<br>The same standards.<br><em>Up to 80% less.</em></h1>
-      <p class="sub">Compare real prices from vetted, accredited clinics across 12 countries — for dental work and orthopaedic surgery. Take the 60-second assessment and see exactly what your treatment should cost.</p>
-      <button class="btn-hero" onclick="startFlow()">Start my free assessment →</button>
-      <p class="micro">60 seconds · No payment details · No obligation</p>
-      <div class="stars-row">
-        <span class="stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></span>
-        <b>Excellent</b><span>· Rated five stars by UK patients</span>
-      </div>
-      <div class="statgrid">
-        <div class="stat"><b>42</b><span>vetted clinics, JCI &amp; ISO accredited</span></div>
-        <div class="stat"><b>12</b><span>countries compared, Lithuania to India</span></div>
-        <div class="stat"><b>80%</b><span>top saving vs UK private prices</span></div>
-        <div class="stat"><b>48h</b><span>quotes from matched clinics</span></div>
-      </div>
-      <div class="how">
-        <div><b><i>1</i>Tell us what you need</b><span>Six quick questions — treatment, timing, budget. No medical records needed yet.</span></div>
-        <div><b><i>2</i>See your findings</b><span>Your personalised price range, country-by-country comparison and matched clinics.</span></div>
-        <div><b><i>3</i>Get real quotes</b><span>Up to 3 vetted clinics send personalised quotes within 48 hours. You choose — or walk away.</span></div>
-      </div>
-      <div class="quote">
-        "Jonathan was quoted a year-long wait for surgery. Nine days after travelling, he was on crutches and recovering."
-        <a href="https://www.theratravel.co.uk/blog/how-jonathan-turned-a-year-long-wait-into-nine-days-on-crutches">Read his story →</a>
-      </div>
-      <button class="btn-hero" onclick="startFlow()">Start my free assessment →</button>
-    </div>
-  </section>
+<section class="sec"><div class="wrap">
+  <h2>Browse by treatment</h2>
+  <p class="lead">Pick a treatment to compare vetted clinics, prices and surgeons.</p>
+  <div class="catcards"><a class="catcard" href="clinics/browse.html?category=Orthopaedics"><div class="em">🦴</div><h3>Orthopaedics</h3><p>Hip, knee &amp; joint replacement, spine, sports injuries</p><div class="go">Compare 42 clinics →</div></a><a class="catcard" href="clinics/browse.html?category=Dental"><div class="em">🦷</div><h3>Dental</h3><p>Implants, All-on-4, veneers &amp; smile makeovers</p><div class="go">Compare 26 clinics →</div></a><a class="catcard" href="clinics/browse.html?category=Plastic Surgery"><div class="em">💉</div><h3>Plastic Surgery</h3><p>Breast, body contouring, rhinoplasty &amp; face</p><div class="go">Compare 27 clinics →</div></a><a class="catcard" href="clinics/browse.html?category=Hair Transplant"><div class="em">💇</div><h3>Hair Transplant</h3><p>FUE, DHI &amp; Sapphire hair restoration</p><div class="go">Compare 21 clinics →</div></a></div>
+</div></section>
 
-  <!-- ── Form ── -->
-  <section class="step" data-step="1">
-    <h1>What are you exploring?</h1>
-    <p class="sub">Answer a few quick questions to see your personalised findings and get matched with up to 3 vetted clinics abroad.</p>
-    <div class="opts" data-key="category">
-      <button class="opt" data-val="Dental">Dental treatment <small>Implants, All-on-4, veneers, crowns</small></button>
-      <button class="opt" data-val="Orthopaedic">Orthopaedic surgery <small>Hip, knee, spine, shoulder, ACL</small></button>
-    </div>
-  </section>
+<section class="sec secalt"><div class="wrap">
+  <h2>Browse by country</h2>
+  <p class="lead">Explore leading destinations for treatment abroad.</p>
+  <div class="countrywrap"><a href="clinics/browse.html?country=Turkey">🇹🇷 Turkey <span class="n">28</span></a><a href="clinics/browse.html?country=India">🇮🇳 India <span class="n">14</span></a><a href="clinics/browse.html?country=Poland">🇵🇱 Poland <span class="n">12</span></a><a href="clinics/browse.html?country=Spain">🇪🇸 Spain <span class="n">10</span></a><a href="clinics/browse.html?country=Hungary">🇭🇺 Hungary <span class="n">8</span></a><a href="clinics/browse.html?country=Lithuania">🇱🇹 Lithuania <span class="n">7</span></a><a href="clinics/browse.html?country=Czech Republic">🇨🇿 Czech Republic <span class="n">4</span></a><a href="clinics/browse.html?country=Latvia">🇱🇻 Latvia <span class="n">3</span></a><a href="clinics/browse.html?country=Croatia">🇭🇷 Croatia <span class="n">2</span></a><a href="clinics/browse.html?country=Thailand">🇹🇭 Thailand <span class="n">2</span></a><a href="clinics/browse.html?country=United Arab Emirates">🇦🇪 United Arab Emirates <span class="n">1</span></a><a href="clinics/browse.html?country=Albania"> Albania <span class="n">1</span></a></div>
+</div></section>
 
-  <section class="step" data-step="2">
-    <h1>What treatment are you considering?</h1>
-    <div class="opts cat-dental" data-key="treatment">
-      <button class="opt" data-val="Single dental implant">A single dental implant</button>
-      <button class="opt" data-val="Multiple dental implants">Several implants (2–5 teeth)</button>
-      <button class="opt" data-val="All-on-4">All-on-4 <small>A full arch fixed on four implants</small></button>
-      <button class="opt" data-val="Full mouth restoration">Full-mouth restoration</button>
-      <button class="opt" data-val="Veneers / smile makeover">Veneers / smile makeover</button>
-      <button class="opt" data-val="Crowns or bridges">Crowns or bridges</button>
-      <button class="opt" data-val="Not sure yet">Not sure yet <small>We'll help you work it out</small></button>
-    </div>
-    <div class="opts cat-ortho cat-hidden" data-key="treatment">
-      <button class="opt" data-val="Hip replacement">Hip replacement</button>
-      <button class="opt" data-val="Knee replacement">Knee replacement</button>
-      <button class="opt" data-val="Spinal surgery">Spinal surgery <small>Fusion, discectomy, decompression</small></button>
-      <button class="opt" data-val="ACL reconstruction">ACL reconstruction</button>
-      <button class="opt" data-val="Shoulder replacement">Shoulder replacement</button>
-      <button class="opt" data-val="Not sure yet (orthopaedic)">Not sure yet <small>We'll help you work it out</small></button>
-    </div>
-  </section>
+<section class="sec"><div class="wrap">
+  <h2>How it works</h2>
+  <p class="lead">From search to quotes in three simple steps — you're in control the whole way.</p>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h3>Tell us what you need</h3><p>Search your treatment or pick a category. Browsing is completely free.</p></div>
+    <div class="step"><div class="num">2</div><h3>Compare vetted clinics</h3><p>See prices, surgeons, accreditations and verified Google reviews, side by side.</p></div>
+    <div class="step"><div class="num">3</div><h3>Request free quotes</h3><p>Pick up to 3 clinics and we introduce you — they contact you directly, only with your consent.</p></div>
+  </div>
+</div></section>
 
-  <section class="step" data-step="3">
-    <h1>Where are you in the process?</h1>
-    <div class="opts" data-key="status">
-      <button class="opt" data-val="Have a UK quote already">I already have a UK quote <small>We'll show you what the same work costs abroad</small></button>
-      <button class="opt" data-val="Had consultation, no quote yet">I've had a consultation but no quote yet</button>
-      <button class="opt" data-val="On an NHS waiting list">I'm on an NHS waiting list</button>
-      <button class="opt" data-val="Researching options">I'm researching my options</button>
-    </div>
-  </section>
-
-  <section class="step" data-step="4">
-    <h1>Any preference on destination?</h1>
-    <p class="sub">Prices vary by destination — we'll factor this into your findings.</p>
-    <div class="opts cat-dental" data-key="destination">
-      <button class="opt" data-val="Turkey">Turkey <small>Lowest prices, all-inclusive packages</small></button>
-      <button class="opt" data-val="Hungary">Hungary <small>Europe's longest-established dental destination</small></button>
-      <button class="opt" data-val="Poland">Poland <small>EU standards, cheapest UK flights</small></button>
-      <button class="opt" data-val="Croatia or Spain">Croatia or Spain</button>
-      <button class="opt" data-val="No preference">No preference — best value for my case</button>
-    </div>
-    <div class="opts cat-ortho cat-hidden" data-key="destination">
-      <button class="opt" data-val="Lithuania">Lithuania <small>Lowest EU prices, JCI-accredited options, 2.5h flight</small></button>
-      <button class="opt" data-val="Poland">Poland <small>EU standards, established UK patient corridor</small></button>
-      <button class="opt" data-val="India">India <small>JCI hospital groups, deepest savings on complex surgery</small></button>
-      <button class="opt" data-val="Turkey">Turkey <small>Major accredited hospital groups</small></button>
-      <button class="opt" data-val="No preference">No preference — best value for my case</button>
-    </div>
-  </section>
-
-  <section class="step" data-step="5">
-    <h1>When would you like treatment?</h1>
-    <div class="opts" data-key="timeline">
-      <button class="opt" data-val="Within 3 months">Within 3 months</button>
-      <button class="opt" data-val="3-6 months">In 3–6 months</button>
-      <button class="opt" data-val="6-12 months">In 6–12 months</button>
-      <button class="opt" data-val="Just exploring">Just exploring for now</button>
-    </div>
-  </section>
-
-  <section class="step" data-step="6">
-    <h1>Roughly what budget do you have in mind?</h1>
-    <p class="sub">This helps clinics quote realistically. There's no wrong answer.</p>
-    <div class="opts cat-dental" data-key="budget">
-      <button class="opt" data-val="Under £1,000">Under £1,000</button>
-      <button class="opt" data-val="£1,000–£3,000">£1,000–£3,000</button>
-      <button class="opt" data-val="£3,000–£6,000">£3,000–£6,000</button>
-      <button class="opt" data-val="£6,000–£12,000">£6,000–£12,000</button>
-      <button class="opt" data-val="Over £12,000">Over £12,000</button>
-      <button class="opt" data-val="Not sure">Not sure yet</button>
-    </div>
-    <div class="opts cat-ortho cat-hidden" data-key="budget">
-      <button class="opt" data-val="Under £4,000">Under £4,000</button>
-      <button class="opt" data-val="£4,000–£7,000">£4,000–£7,000</button>
-      <button class="opt" data-val="£7,000–£10,000">£7,000–£10,000</button>
-      <button class="opt" data-val="£10,000–£15,000">£10,000–£15,000</button>
-      <button class="opt" data-val="Over £15,000">Over £15,000</button>
-      <button class="opt" data-val="Not sure">Not sure yet</button>
-    </div>
-  </section>
-
-  <section class="step" data-step="7">
-    <h1>Where should we send your quotes?</h1>
-    <p class="sub">Your findings are ready on the next screen — personalised price range, country comparison and matched clinics. Up to 3 vetted clinics will also send personalised quotes — free, no obligation.</p>
-    <label for="fname">First name</label>
-    <input type="text" id="fname" autocomplete="given-name">
-    <label for="lname">Last name</label>
-    <input type="text" id="lname" autocomplete="family-name">
-    <label for="email">Email</label>
-    <input type="email" id="email" autocomplete="email">
-    <label for="phone">Phone (for clinics to send quotes via WhatsApp/call)</label>
-    <input type="tel" id="phone" autocomplete="tel">
-    <div class="consent">
-      <input type="checkbox" id="consent">
-      <span>I agree to Thera sharing my details with up to 3 vetted partner clinics so they can contact me with quotes for the treatment I've described. I can withdraw consent at any time — see the privacy notice below.</span>
-    </div>
-    <p class="error" id="err"></p>
-    <div class="nav">
-      <button class="btn btn-ghost" onclick="back()">Back</button>
-      <button class="btn btn-primary" id="submitBtn" onclick="submitLead()">See my findings →</button>
-    </div>
-    <details>
-      <summary>Privacy notice</summary>
-      <p>Thera Travel (theratravel.co.uk, UK) collects the details you enter here for one purpose: matching you with up to 3 vetted partner clinics and enabling them to send you quotes. Legal basis: your consent. Your details go to the partner clinics matched to your answers and are stored in our form-handling system (Webflow). We don't sell your data or add you to marketing lists. To withdraw consent or request deletion, email hello@theratravel.co.uk. Clinics process your data under their own privacy notices once you're introduced. Full <a href="privacy.html" target="_blank" style="color:var(--blue)">privacy &amp; data policy</a>.</p>
-    </details>
-  </section>
-
-  <!-- ── Findings ── -->
-  <section class="step" data-step="8">
-    <div class="result">
-      <div class="badge">✓ Request received — clinics will be in touch within 2 working days</div>
-      <p class="sub" style="margin-bottom:4px">Your indicative price abroad for <b id="r-treat"></b>:</p>
-      <div class="price" id="r-price"></div>
-      <div class="compare" id="r-compare"></div>
-      <div id="r-engine"></div>
-      <p class="price-note" style="margin-top:22px">These are indicative ranges based on typical 2026 prices, not quotes. Your personalised quotes from vetted clinics — based on your actual case — are on their way to your inbox.</p>
-      <p class="price-note">Meanwhile, read our <a id="r-guide" href="https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad">honest guide to having treatment abroad safely</a>.</p>
-    </div>
-  </section>
-</main>
-<footer>
-  A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prefer to share full medical details now? <a href="https://www.theratravel.co.uk/medical-procedure-quote">Use the detailed form</a>
-</footer>
-
-<script src="data.js"></script>
+<div class="wrap"><div class="ctaband">
+  <h2>Not sure where to start?</h2>
+  <p>Take our free 60-second assessment and we'll show you what your treatment should cost and match you with vetted clinics.</p>
+  <a class="cta" href="quote.html?utm_source=home&utm_medium=cta">Start free assessment →</a>
+</div></div>
+<footer class="site"><div class="wrap">A free service by <a href="https://www.theratravel.co.uk">Thera Travel</a> · Prices are indicative research-sourced ranges, not quotes · Ratings shown are public Google data, refreshed monthly · <a href="privacy.html">Privacy</a> · <a href="clinics/browse.html">Browse all clinics →</a></div></footer>
+<script src="clinics/profiles.js"></script>
 <script>
-const SITE_ID = "66fd0ce3ac80a5a578e8bb61";
-const FORM_NAME = "wf-form-Medical-procedure-form";
-const PAGE_ID = "691fda0fcb46d0430f9f719d";
-const ELEMENT_ID = "03fc190c-fc36-e4d7-de13-5f77fdcbcc69";
-
-// Indicative ranges, GBP, typical 2026 prices.
-// Dental: from the dental cluster research pack. Ortho: from the July 2026 Phoenix
-// clinic research (Lithuania/Poland May figures, India USD packages at ~0.78 GBP/USD).
-const PRICES = {
-  "Single dental implant": {Turkey:[400,1100], Hungary:[800,1150], Poland:[400,1300], "Croatia or Spain":[570,1750], abroad:[400,1300], uk:[1800,3500]},
-  "Multiple dental implants": {Turkey:[1200,4400], Hungary:[2400,4600], Poland:[1200,5200], "Croatia or Spain":[1700,7000], abroad:[1200,5200], uk:[5400,14000]},
-  "All-on-4": {Turkey:[3000,6000], Hungary:[3900,6500], Poland:[4500,7000], "Croatia or Spain":[5400,9000], abroad:[3000,7000], uk:[9000,15000]},
-  "Full mouth restoration": {Turkey:[6000,12000], Hungary:[7800,13000], Poland:[10000,14000], "Croatia or Spain":[10000,16000], abroad:[6000,14000], uk:[25000,35000]},
-  "Veneers / smile makeover": {Turkey:[1600,4000], Hungary:[2400,5000], Poland:[2400,5000], "Croatia or Spain":[1800,6000], abroad:[1600,5000], uk:[6400,11300]},
-  "Crowns or bridges": {Turkey:[150,450], Hungary:[200,500], Poland:[200,500], "Croatia or Spain":[220,600], abroad:[150,600], uk:[500,1200]},
-  "Not sure yet": {abroad:[400,7000], uk:[1800,15000]},
-  "Hip replacement": {Lithuania:[2450,3900], Poland:[3900,8100], India:[3300,5200], Turkey:[7000,12000], abroad:[2450,8100], uk:[12000,16500]},
-  "Knee replacement": {Lithuania:[2600,4300], Poland:[4300,8100], India:[3300,5200], Turkey:[6500,11000], abroad:[2600,8100], uk:[11500,15500]},
-  "Spinal surgery": {Poland:[6900,12900], India:[5300,6500], Turkey:[8000,14000], abroad:[5300,12900], uk:[20000,35000]},
-  "ACL reconstruction": {Lithuania:[2150,3450], Poland:[2600,4300], Turkey:[3000,5000], abroad:[2150,5000], uk:[7000,10500]},
-  "Shoulder replacement": {Lithuania:[4300,6900], Poland:[5200,8600], abroad:[4300,8600], uk:[12000,16000]},
-  "Not sure yet (orthopaedic)": {abroad:[2150,12900], uk:[7000,35000]},
-};
-
-const GUIDES = {
-  Dental: "https://www.theratravel.co.uk/blog/is-it-safe-to-get-dental-implants-abroad",
-  Orthopaedic: "https://www.theratravel.co.uk/blog/best-country-for-orthopaedic-surgery-abroad",
-};
-
-// treatment answer -> Phoenix Procedures slug (for the findings engine table)
-const PROC_SLUG = {
-  "Single dental implant": "dental-implants", "Multiple dental implants": "dental-implants",
-  "All-on-4": "all-on-4", "Full mouth restoration": "full-mouth-implants",
-  "Veneers / smile makeover": "veneers", "Crowns or bridges": "crowns-bridges",
-  "Hip replacement": "hip-replacement", "Knee replacement": "knee-replacement",
-  "Spinal surgery": "spinal-fusion", "ACL reconstruction": "acl-reconstruction",
-  "Shoulder replacement": "shoulder-replacement",
-};
-
-const answers = {};
-let step = 0;
-const TOTAL = 8;
-
-function applyCategory(cat){
-  document.querySelectorAll('.cat-dental').forEach(el=>el.classList.toggle('cat-hidden', cat!=='Dental'));
-  document.querySelectorAll('.cat-ortho').forEach(el=>el.classList.toggle('cat-hidden', cat!=='Orthopaedic'));
-}
-
-function show(n){
-  document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-  document.querySelector(`[data-step="${n}"]`).classList.add('active');
-  document.getElementById('progress').classList.toggle('on', n>=1);
-  document.getElementById('bar').style.width = (Math.max(n,1)/TOTAL*100)+'%';
-  step = n;
-  window.scrollTo({top:0,behavior:'smooth'});
-}
-function back(){ if(step>1) show(step-1); else show(0); }
-function startFlow(){ show(answers.category ? 2 : 1); }
-
-document.querySelectorAll('.opts').forEach(group=>{
-  group.querySelectorAll('.opt').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      group.querySelectorAll('.opt').forEach(b=>b.classList.remove('sel'));
-      btn.classList.add('sel');
-      answers[group.dataset.key] = btn.dataset.val;
-      if(group.dataset.key==='category') applyCategory(btn.dataset.val);
-      setTimeout(()=>show(step+1), 180);
-    });
-  });
-});
-
-// Clinic-directed capture: ?clinic=slug1,slug2 pre-seeds which clinics to quote.
-// Names resolved from window.PHOENIX_DATA when available, else de-slugged.
-const CLINIC_SLUGS = (new URLSearchParams(location.search).get('clinic')||'')
-  .split(',').map(s=>s.trim()).filter(Boolean).slice(0,3);
-function deslug(s){ return s.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase()); }
-function clinicNames(){
-  const D = window.PHOENIX_DATA;
-  const slugify = n => n.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,80);
-  return CLINIC_SLUGS.map(sl=>{
-    const m = D && D.clinics && D.clinics.find(c=>slugify(c.name)===sl);
-    return m ? m.name : deslug(sl);
-  });
-}
-if(CLINIC_SLUGS.length){
-  document.getElementById('clinicNames').textContent = clinicNames().join(', ');
-  document.getElementById('clinicBanner').style.display = 'block';
-}
-
-// Deep-link: ?path=ortho|dental preselects category; ?start=1 skips the landing.
-(function(){
-  const q = new URLSearchParams(location.search);
-  const p = q.get('path');
-  const cat = p==='ortho' ? 'Orthopaedic' : (p==='dental'||p==='plastic'||p==='hair') ? 'Dental' : null;
-  if(cat){ answers.category = cat==='Orthopaedic'?'Orthopaedic':'Dental'; applyCategory(answers.category); }
-  if(cat || q.get('start') || CLINIC_SLUGS.length) show(cat ? 2 : 1);
-})();
-
-function fmt(n){ return '£'+n.toLocaleString('en-GB'); }
-
-function estimate(){
-  const fallback = answers.category==='Orthopaedic' ? PRICES["Not sure yet (orthopaedic)"] : PRICES["Not sure yet"];
-  const p = PRICES[answers.treatment] || fallback;
-  const dest = answers.destination;
-  const range = (dest && p[dest]) ? p[dest] : p.abroad;
-  return {range, uk:p.uk, destLabel:(dest && p[dest]) ? ' in '+dest : ' abroad'};
-}
-
-async function submitLead(){
-  const f = id=>document.getElementById(id);
-  const err = f('err');
-  err.style.display='none';
-  const fname=f('fname').value.trim(), lname=f('lname').value.trim(),
-        email=f('email').value.trim(), phone=f('phone').value.trim();
-  if(!fname||!lname){ err.textContent='Please enter your name.'; err.style.display='block'; return; }
-  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent='Please enter a valid email address.'; err.style.display='block'; return; }
-  if(phone.replace(/\D/g,'').length<10){ err.textContent='Please enter a valid phone number.'; err.style.display='block'; return; }
-  if(!f('consent').checked){ err.textContent='Please tick the consent box so clinics can contact you.'; err.style.display='block'; return; }
-
-  const isOrtho = answers.category==='Orthopaedic';
-  const est = estimate();
-  const params = new URLSearchParams(location.search);
-  const body = new URLSearchParams({
-    // Webflow silently discards submissions whose source is off-domain,
-    // so send an on-domain virtual path and log the real URL in a field.
-    name: FORM_NAME, pageId: PAGE_ID, elementId: ELEMENT_ID,
-    source: "https://www.theratravel.co.uk/thera-assess",
-    "fields[Referrer]": location.href,
-    "fields[First Name]": fname,
-    "fields[Last Name]": lname,
-    "fields[Email]": email,
-    "fields[Phone]": phone,
-    "fields[Procedure Interest]": isOrtho ? "Orthopaedic Surgery" : "Dental Implants",
-    "fields[Treatment detail]": answers.treatment||"",
-    "fields[Current status]": answers.status||"",
-    "fields[Destination preference]": answers.destination||"",
-    "fields[Timeline]": answers.timeline||"",
-    "fields[Budget band]": answers.budget||"",
-    "fields[Assessment summary]": `${answers.treatment} | ${answers.destination} | est ${fmt(est.range[0])}–${fmt(est.range[1])}`,
-    "fields[Consent]": "true",
-    "fields[Clinic interest]": CLINIC_SLUGS.join(", "),
-    "fields[Clinic names]": clinicNames().join(", "),
-    "fields[Lead source]": isOrtho ? "thera-assess-ortho" : "thera-assess-dental",
-    "fields[UTM]": ["utm_source","utm_medium","utm_campaign"].map(k=>params.get(k)||"").join("/"),
-  });
-
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Sending…';
-  try{
-    const r = await fetch(`https://webflow.com/api/v1/form/${SITE_ID}`, {method:'POST', body});
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    showResult(est);
-  }catch(e){
-    err.textContent = "Something went wrong sending your request. Please try again, or email hello@theratravel.co.uk and we'll pick it up personally.";
-    err.style.display='block';
-    btn.disabled=false; btn.textContent='See my findings →';
-  }
-}
-
-function engineFindings(){
-  const D = window.PHOENIX_DATA;
-  if(!D) return '';
-  const slug = PROC_SLUG[answers.treatment];
-  const proc = slug && D.procedures.find(p=>p.slug===slug);
-  if(!proc || !proc.rows.length) return '';
-  const pref = answers.destination;
-  let html = `<h2>How the countries compare for ${proc.name.toLowerCase()}</h2>
-    <div class="tablewrap"><table>
-    <tr><th>Country</th><th>Typical price</th><th>Saving vs UK</th><th>Flight from UK</th></tr>
-    <tr class="uk"><td><b>United Kingdom (private)</b></td><td>${proc.uk_price||'—'}</td><td>—</td><td>—</td></tr>`;
-  html += proc.rows.map(r=>
-    `<tr class="${pref && pref.includes(r.country) ? 'pref':''}">
-      <td><b>${r.country}</b>${pref && pref.includes(r.country) ? ' <span style="font-size:11px;color:var(--blue);font-weight:700">YOUR PICK</span>':''}</td>
-      <td>${r.price}</td>
-      <td class="saving">${r.saving_pct?('up to ~'+r.saving_pct+'%'):'—'}</td>
-      <td>${r.flight||'—'}</td></tr>`).join('');
-  html += `</table></div>`;
-
-  const catKey = answers.category==='Orthopaedic' ? 'orthopaedic' : 'dental';
-  let cl = D.clinics.filter(c=>c.categories.includes(catKey));
-  if(pref && pref!=='No preference') cl = cl.filter(c=>pref.includes(c.country)) .concat(cl.filter(c=>!pref.includes(c.country)));
-  cl = cl.slice(0,3);
-  if(cl.length){
-    html += `<h2>Vetted clinics we match patients like you with</h2><div class="cards">`;
-    html += cl.map(c=>{
-      const badges=(c.accreditations||'').split(',').map(s=>s.trim()).filter(Boolean).slice(0,3)
-        .map(a=>`<span class="abadge">${a}</span>`).join('');
-      const price = Object.entries(c.prices||{})[0];
-      return `<div class="card"><h3>${c.name}</h3><div class="loc">${c.city}, ${c.country}</div>
-        ${badges}<div class="p">${price?price[0]+': '+price[1]:'Price on assessment'}</div></div>`;
-    }).join('');
-    html += `</div><p class="price-note" style="margin-top:14px">Your quotes may come from these or other vetted partners matched to your case.</p>`;
-  }
-  return html;
-}
-
-function showResult(est){
-  document.getElementById('r-treat').textContent = (answers.treatment||'').replace(' (orthopaedic)','').toLowerCase();
-  document.getElementById('r-price').textContent = fmt(est.range[0])+' – '+fmt(est.range[1]);
-  document.getElementById('r-guide').href = GUIDES[answers.category] || GUIDES.Dental;
-  const save = [Math.max(0,est.uk[0]-est.range[1]), Math.max(0,est.uk[1]-est.range[0])];
-  document.getElementById('r-compare').innerHTML =
-    `<div><span>Typical UK private price</span><span>${fmt(est.uk[0])} – ${fmt(est.uk[1])}</span></div>`+
-    `<div><span>Typical price${est.destLabel}</span><span>${fmt(est.range[0])} – ${fmt(est.range[1])}</span></div>`+
-    `<div><span>Potential saving</span><b>${fmt(save[0])} – ${fmt(save[1])}</b></div>`;
-  document.getElementById('r-engine').innerHTML = engineFindings();
-  show(8);
-}
-</script>
-</body>
-</html>
+const D=window.CLINIC_DIRECTORY||[];
+const CATS=["Orthopaedics","Dental","Plastic Surgery","Hair Transplant"];
+const KW={dental:'Dental',implant:'Dental',veneer:'Dental',teeth:'Dental',tooth:'Dental',crown:'Dental','all-on':'Dental',
+  hair:'Hair Transplant',fue:'Hair Transplant',dhi:'Hair Transplant',transplant:'Hair Transplant',graft:'Hair Transplant',
+  hip:'Orthopaedics',knee:'Orthopaedics',ortho:'Orthopaedics',joint:'Orthopaedics',spine:'Orthopaedics',acl:'Orthopaedics',shoulder:'Orthopaedics',replacement:'Orthopaedics',
+  plastic:'Plastic Surgery',cosmetic:'Plastic Surgery',breast:'Plastic Surgery',rhinoplasty:'Plastic Surgery',nose:'Plastic Surgery',bbl:'Plastic Surgery',tummy:'Plastic Surgery',lipo:'Plastic Surgery',facelift:'Plastic Surgery'};
+const SUGG=[['Dental implants','Dental'],['All-on-4 dental implants','Dental'],['Veneers','Dental'],['Hip replacement','Orthopaedics'],['Knee replacement','Orthopaedics'],['ACL reconstruction','Orthopaedics'],['Hair transplant (FUE)','Hair Transplant'],['DHI hair transplant','Hair Transplant'],['Rhinoplasty','Plastic Surgery'],['Breast augmentation','Plastic Surgery'],['Tummy tuck','Plastic Surgery'],['BBL','Plastic Surgery']]
+  .concat([...new Set(D.map(c=>c.country))].map(c=>[c,'__country']));
+function el(id){return document.getElementById(id)}
+function catFor(q){const l=q.toLowerCase();for(const k in KW){if(l.includes(k))return KW[k]}return null}
+function goSearch(e){if(e)e.preventDefault();const q=el('q').value.trim();if(!q)return false;
+  const cat=catFor(q);location.href='clinics/browse.html?q='+encodeURIComponent(q)+(cat?'&category='+encodeURIComponent(cat):'');return false;}
+// lightweight typeahead
+const box=el('q'),sg=el('sugg');let hi=-1,items=[];
+box.addEventListener('input',()=>{const v=box.value.toLowerCase().trim();
+  if(!v){sg.classList.remove('on');return}
+  items=SUGG.filter(s=>s[0].toLowerCase().includes(v)).slice(0,6);
+  if(!items.length){sg.classList.remove('on');return}
+  sg.innerHTML=items.map((s,i)=>{
+    const href=s[1]==='__country'?('clinics/browse.html?country='+encodeURIComponent(s[0])):('clinics/browse.html?q='+encodeURIComponent(s[0])+'&category='+encodeURIComponent(s[1]));
+    const tag=s[1]==='__country'?'<small>country</small>':'<small>'+s[1]+'</small>';
+    return '<a href="'+href+'" data-i="'+i+'">'+s[0]+' &nbsp;'+tag+'</a>';}).join('');
+  sg.classList.add('on');hi=-1;});
+box.addEventListener('keydown',e=>{const a=sg.querySelectorAll('a');
+  if(e.key==='ArrowDown'){e.preventDefault();hi=Math.min(hi+1,a.length-1)}
+  else if(e.key==='ArrowUp'){e.preventDefault();hi=Math.max(hi-1,0)}
+  else if(e.key==='Enter'&&hi>=0){e.preventDefault();location.href=a[hi].href;return}
+  else return;
+  a.forEach((x,i)=>x.classList.toggle('hi',i===hi));});
+document.addEventListener('click',e=>{if(!sg.contains(e.target)&&e.target!==box)sg.classList.remove('on')});
+</script></body></html>
